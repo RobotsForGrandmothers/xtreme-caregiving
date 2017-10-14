@@ -8,9 +8,9 @@ public class Floor : MonoBehaviour {
 	public int halfLength;
 	public float nodeSpacing = 1;
 	public float middleWidth = 1;
+	public Door left;
+	public Door right;
 	Node[] nodes;
-	Door left;
-	Door right;
 
 	// Use this for initialization
 	void Start () {
