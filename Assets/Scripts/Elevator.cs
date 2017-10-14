@@ -5,12 +5,9 @@ using System;
 
 [RequireComponent(typeof(Collider2D))]
 public class Elevator : MonoBehaviour {
-	public int startPositionX;
-	public int startPositionY;
 	public int numNodesInElevator;
 
 	private Floor floor;
-	private int[] position;
 	private Node[] nodes;
 
 	public Floor GetElevatorFloor(){
