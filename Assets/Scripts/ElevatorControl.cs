@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Elevator))]
 public class ElevatorControl : MonoBehaviour {
-	public Elevator elevator;
+	private Elevator elevator;
 	public int maxHight;
 	public int minHight;
 
 
 	// Use this for initialization
 	void Start () {
-		
+		elevator = this.GetComponent<Elevator> ();
 	}
 	
 	// Update is called once per frame
