@@ -18,7 +18,7 @@ public class Elevator : MonoBehaviour {
 		}
 	}
 	void OnTriggerExit2D(Collider2D other){
-		if other.GetComponent<Floor>() == floor){
+		if (other.GetComponent<Floor>() == floor){
 			floor = null;
 		}
 	}
@@ -30,19 +30,18 @@ public class Elevator : MonoBehaviour {
 	}
 
 	void CloseLeftDoor(){
-		floor.GetDoorLeft ().Close ();
+		floor.left.Close ();
 
 	}
 	void OpenLeftDoor(){
-		floor.GetDoorLeft ().Open ();
+		floor.left.Open ();
 	}
 	void CloseRightDoor(){
-		floor.GetDoorRight ().Close ();
+		floor.right.Close ();
 	}
 	void OpenRightDoor(){
-		floor.GetDoorRight ().Open ();
+		floor.right.Open ();
 	}
-
 
 	// Use this for initialization
 	void Start () {
@@ -59,14 +58,14 @@ public class Elevator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			if (floor.GetDoorLeft ().open) {
+			if (floor.left.IsOpen()) {
 				CloseLeftDoor ();
 			} else {
 				OpenLeftDoor ();
 			}
 		}
 		else if (Input.GetMouseButtonDown(1)){
-			if (floor.GetDoorRight ().open) {
+			if (floor.right.IsOpen()) {
 				CloseRightDoor ();
 			} else {
 				OpenRightDoor ();
