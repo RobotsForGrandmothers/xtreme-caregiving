@@ -6,10 +6,13 @@ public class Despawner : MonoBehaviour {
     public static int count = 0;
     public static int score = 0;
 
+
+
     // vars for coinging old ppl types
-    public static int R = 0;
-    public static int G = 0;
-    public static int B = 0;
+    static int R = 0;
+    static int G = 0;
+    static int B = 0;
+
 
     // Use this for initialization
     void Start() {
