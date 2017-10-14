@@ -16,7 +16,7 @@ public class Floor : MonoBehaviour {
 		get { return _nodeSpacing; }
 		set { _nodeSpacing = value; RepositionNodes (); }
 	}
-	public float _middleWidth = 1;
+	float _middleWidth = 1;
 	public float middleWidth {
 		get { return _middleWidth; }
 		set { _middleWidth = value; RepositionNodes (); }
