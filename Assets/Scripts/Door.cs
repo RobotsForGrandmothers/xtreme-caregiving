@@ -4,7 +4,14 @@ using UnityEngine;
 using System;
 
 public class Door : MonoBehaviour {
-	bool open = false;
+	bool _open = false;
+	bool open {
+		get { return _open; }
+		set {
+			_open = value;
+			this.GetComponent<SpriteRenderer> ().color = (_open ? Color.green : Color.red);
+		}
+	}
 
 	public bool IsOpen(){
 		return open;
