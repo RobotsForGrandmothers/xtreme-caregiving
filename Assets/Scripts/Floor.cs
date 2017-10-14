@@ -108,7 +108,22 @@ public class Floor : MonoBehaviour {
 	public Node GetExitRight() {
 		return rightNodes [rightNodes.Length];
 	}
-
+	public Node[] GetOutNodesLeft() {
+		Node[] outNodes = new Node[halfLength];
+		for (int i = 0; i < halfLength; ++i) {
+			int index = 2 * halfLength - i - 1;
+			outNodes [i] = leftNodes [index];
+		}
+		return outNodes;
+	}
+	public Node[] GetOutNodesRight() {
+		Node[] outNodes = new Node[halfLength];
+		for (int i = 0; i < halfLength; ++i) {
+			int index = 2 * halfLength - i - 1;
+			outNodes [i] = rightNodes [index];
+		}
+		return outNodes;
+	}
 
 	Node CreateNode(string name) {
 		GameObject node = new GameObject(name);
