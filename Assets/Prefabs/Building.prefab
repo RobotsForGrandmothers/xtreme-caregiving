@@ -56,6 +56,8 @@ MonoBehaviour:
   timeToSpawn: 10
   personPrefabs:
   - {fileID: 114871603889664332, guid: 36aa3c50629834ee1b9e2035d90ec4c3, type: 2}
+  - {fileID: 114437257565458818, guid: 5a10c3f09d9984b4d906398bddff7913, type: 2}
+  - {fileID: 114866707777693772, guid: 1949a1d4f4bad497ea7c4e98b38a545c, type: 2}
 --- !u!114 &114659643253582710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -74,4 +76,5 @@ MonoBehaviour:
   floorHeight: 2
   floorPrefab: {fileID: 1158991720238024, guid: ac6a34bc795c44eaf92199e7198fbfe5,
     type: 2}
-  elevatorPrefab: {fileID: 0}
+  elevatorPrefab: {fileID: 1773310144837350, guid: 19f9c43b28fd04beca27cb1ea2e467a0,
+    type: 2}

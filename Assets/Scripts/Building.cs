@@ -10,15 +10,17 @@ public class Building : MonoBehaviour {
 	public int elevatorWidth = 5;
 	public float floorHeight = 2;
 	private Floor[] floorArray;
-	public GameObject floorPrefab;
-	public GameObject elevatorPrefab;
+	private Elevator elevator;
+	public Floor floorPrefab;
+	public Elevator elevatorPrefab;
+	System.Random rand = new System.Random ((int)(0xcea9e245 ^ (int)System.DateTime.Now.TimeOfDay.TotalMilliseconds)); // because it works
 
 	// Use this for initialization
 	void Start () {
 		// create floors
 		floorArray = new Floor[floors];
 		for (int i = 0; i < floors; ++i) {
-			GameObject obj = Instantiate (floorPrefab, this.transform);
+			GameObject obj = Instantiate (floorPrefab.gameObject, this.transform);
 			obj.name = "Floor " + i;
 			obj.transform.localPosition = new Vector2 (0, floorHeight * i);
 			Floor floor = obj.GetComponent<Floor> ();
@@ -29,11 +31,16 @@ public class Building : MonoBehaviour {
 			floorArray [i] = floor;
 		}
 
+		// set node spawn function
 		this.GetComponent<PersonSpawner> ().nodeGetter = GetRandomNode;
+
+		// create elevator
+		elevator = Instantiate (elevatorPrefab.gameObject, this.transform).GetComponent<Elevator>();
+		elevator.numNodesInElevator = elevatorWidth;
+		elevator.transform.position = Vector2.zero;
 	}
 
 	Node GetRandomNode() {
-		System.Random rand = new System.Random();
 		Floor floor = floorArray[rand.Next(floorArray.Length)];
 		bool left = rand.Next (2) == 0;
 		Node[] nodes;
