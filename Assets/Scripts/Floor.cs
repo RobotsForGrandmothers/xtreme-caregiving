@@ -34,6 +34,9 @@ public class Floor : MonoBehaviour {
 		right.transform.localPosition = new Vector2(+middleWidth / 2, 0);
 
 		RecreateNodes ();
+
+		// set up collider for elevator
+		this.GetComponent<BoxCollider2D> ().size = new Vector2 (middleWidth, 1);
 	}
 
 	void RecreateNodes() {
