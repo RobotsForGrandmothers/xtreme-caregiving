@@ -5,7 +5,8 @@ using UnityEngine;
 public class Floor : MonoBehaviour {
 	public GameObject doorPrefab;
 
-	public int halfLength;
+	int _halfLength;
+	public int halfLength { get { return _halfLength; } set { _halfLength = value; RecreateNodes (); } }
 	public float nodeSpacing = 1;
 	public float middleWidth = 1;
 	Node[] leftNodes;
@@ -19,6 +20,22 @@ public class Floor : MonoBehaviour {
 		left.transform.localPosition = new Vector2(-middleWidth / 2, 0);
 		right = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
 		right.transform.localPosition = new Vector2(+middleWidth / 2, 0);
+
+		RecreateNodes ();
+	}
+
+	void RecreateNodes() {
+		// delete old nodes
+		if (leftNodes != null) {
+			foreach (Node node in leftNodes) {
+				Destroy (node);
+			}
+		}
+		if (rightNodes != null) {
+			foreach (Node node in rightNodes) {
+				Destroy (node);
+			}
+		}
 
 		leftNodes = new Node[halfLength * 2];
 		rightNodes = new Node[halfLength * 2];
@@ -50,10 +67,26 @@ public class Floor : MonoBehaviour {
 			}
 		}
 
-		// link up going in and going out
-		leftNodes [halfLength - 1].right = leftNodes [halfLength];
-		rightNodes [halfLength - 1].left = rightNodes [halfLength];
+		if (halfLength > 0) {
+			// link up going in and going out
+			leftNodes [halfLength - 1].right = leftNodes [halfLength];
+			rightNodes [halfLength - 1].left = rightNodes [halfLength];
+		}
 	}
+
+	public Node GetEntranceLeft() {
+		return leftNodes [0];
+	}
+	public Node GetEntranceRight() {
+		return rightNodes [0];
+	}
+	public Node GetExitLeft() {
+		return leftNodes [leftNodes.Length];
+	}
+	public Node GetExitRight() {
+		return rightNodes [rightNodes.Length];
+	}
+
 
 	Node CreateNode(string name) {
 		GameObject node = new GameObject(name);
