@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Collider2D))]
 public class Elevator : MonoBehaviour {
 	public int startPositionX;
 	public int startPositionY;
@@ -11,6 +12,10 @@ public class Elevator : MonoBehaviour {
 	private Floor floor;
 	private int[] position;
 	private Node[] nodes;
+
+	public Floor GetElevatorFloor(){
+		return floor;
+	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.GetComponent<Floor>() != null) {
@@ -59,7 +64,7 @@ public class Elevator : MonoBehaviour {
 
 	}
 
-	void CloseLeftDoor(){
+	public void CloseLeftDoor(){
 		if (floor != null) {
 			floor.left.Close ();
 			DisConnectNode (true);
@@ -67,7 +72,7 @@ public class Elevator : MonoBehaviour {
 			throw new Exception ("Cannot close floor door because elevator is not at a floor");
 		}
 	}
-	void OpenLeftDoor(){
+	public void OpenLeftDoor(){
 		if (floor != null) {
 			floor.left.Open ();
 			ConnectNode (true);
@@ -75,7 +80,7 @@ public class Elevator : MonoBehaviour {
 			throw new Exception ("Cannot close floor door because elevator is not at a floor");
 		}
 	}
-	void CloseRightDoor(){
+	public void CloseRightDoor(){
 		if (floor != null) {
 			floor.right.Close ();
 			DisConnectNode (false);
@@ -83,7 +88,7 @@ public class Elevator : MonoBehaviour {
 			throw new Exception ("Cannot close floor door because elevator is not at a floor");
 		}
 	}
-	void OpenRightDoor(){
+	public void OpenRightDoor(){
 		if (floor != null) {
 			floor.right.Open ();
 			ConnectNode (false);
@@ -106,20 +111,6 @@ public class Elevator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
-			if (floor.left.IsOpen()) {
-				CloseLeftDoor ();
-			} else {
-				OpenLeftDoor ();
-			}
-		}
-		else if (Input.GetMouseButtonDown(1)){
-			if (floor.right.IsOpen()) {
-				CloseRightDoor ();
-			} else {
-				OpenRightDoor ();
-			}
-		}
 
 	}
 }
