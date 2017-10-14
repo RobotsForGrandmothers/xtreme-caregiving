@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Elevator))]
 public class ElevatorControl : MonoBehaviour {
+	public float speed = 5.0f;
 	private Elevator elevator;
 
 	// Use this for initialization
@@ -29,7 +30,7 @@ public class ElevatorControl : MonoBehaviour {
 		}
 		if (Input.GetAxis ("Mouse ScrollWheel") != 0) {
 			Vector2 localPosition = elevator.transform.localPosition;
-			localPosition.y += Input.GetAxis ("Mouse ScrollWheel");
+			localPosition.y += speed * Input.GetAxis ("Mouse ScrollWheel");
 			localPosition.y = Mathf.Clamp(localPosition.y, elevator.minHeight, elevator.maxHeight);
 			elevator.transform.localPosition = localPosition;
 		}
