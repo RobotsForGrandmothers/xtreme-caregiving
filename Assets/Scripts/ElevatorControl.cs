@@ -22,13 +22,15 @@ public class ElevatorControl : MonoBehaviour {
 			} else {
 				elevator.OpenLeftDoor ();
 			}
-		} else if (Input.GetMouseButtonDown (1)) {
+		} 
+		if (Input.GetMouseButtonDown (1)) {
 			if (elevator.GetElevatorFloor ().right.IsOpen ()) {
 				elevator.CloseRightDoor ();
 			} else {
 				elevator.OpenRightDoor ();
 			}
-		} else if (Input.GetAxis ("Mouse ScrollWheel") != 0) {
+		}
+		if (Input.GetAxis ("Mouse ScrollWheel") != 0) {
 			Vector2 position = elevator.transform.position;
 			position.y += Input.GetAxis ("Mouse ScrollWheel");
 			elevator.transform.position = position;
