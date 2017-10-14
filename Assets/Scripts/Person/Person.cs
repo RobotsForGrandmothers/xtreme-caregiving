@@ -41,6 +41,7 @@ public abstract class Person : MonoBehaviour {
 				moving = false;
 			}
 			position.x = position.x + deltaX;
+			this.transform.position = position;
 		}
 
 		// if we're not moving get a new target
@@ -55,7 +56,7 @@ public abstract class Person : MonoBehaviour {
 				if (target.left == null) {// turn if we must
 					isFacingRight = true;
 				} else if (!target.left.IsReserved ()) { // keep moving if we can
-					target = target.right;
+					target = target.left;
 				}
 			}
 		}
