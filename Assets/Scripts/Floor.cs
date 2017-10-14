@@ -8,7 +8,8 @@ public class Floor : MonoBehaviour {
 	public int halfLength;
 	public float nodeSpacing = 1;
 	public float middleWidth = 1;
-	Node[] nodes;
+	Node[] leftNodes;
+	Node[] rightNodes;
 	Door left;
 	Door right;
 
@@ -19,25 +20,43 @@ public class Floor : MonoBehaviour {
 		right = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
 		right.transform.localPosition = new Vector2(+middleWidth / 2, 0);
 
-		nodes = new Node[halfLength * 2];
+		leftNodes = new Node[halfLength * 2];
+		rightNodes = new Node[halfLength * 2];
 
+		// create nodes going into each side of the floor
 		for (int i = 0; i < halfLength; ++i) {
-			nodes [i] = CreateNode(i);
-			nodes [i + halfLength] = CreateNode (i + halfLength);
-			nodes [i].transform.transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
-			nodes [i + halfLength].transform.transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+			leftNodes [i] = CreateNode("Node Left In " + i);
+			rightNodes [i] = CreateNode ("Node Right In " + i);
+			leftNodes [i].transform.transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+			rightNodes [i].transform.transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
 
 			if (i > 0) {
-				nodes [i].right = nodes [i - 1];
-				nodes [i - 1].left = nodes [i];
-				nodes [i + halfLength].left = nodes [i + halfLength - 1];
-				nodes [i + halfLength - 1].right = nodes [i + halfLength];
+				leftNodes [i - 1].left = leftNodes [i];
+				rightNodes [i - 1].right = rightNodes [i];
 			}
 		}
+
+		// create the nodes going back out of the floor, starting from farthest in the room
+		for (int i = 0; i < halfLength; ++i) {
+			int index = 2 * halfLength - i - 1;
+			leftNodes [index] = CreateNode("Node Left Out " + i);
+			rightNodes [index] = CreateNode ("Node Right Out " + i);
+			leftNodes [index].transform.transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+			rightNodes [index].transform.transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+
+			if (i > 0) {
+				leftNodes [index].right = leftNodes [index + 1];
+				rightNodes [index].left = rightNodes [index + 1];
+			}
+		}
+
+		// link up going in and going out
+		leftNodes [halfLength - 1].right = leftNodes [halfLength];
+		rightNodes [halfLength - 1].left = rightNodes [halfLength];
 	}
 
-	Node CreateNode(int index) {
-		GameObject node = new GameObject("Node " + index);
+	Node CreateNode(string name) {
+		GameObject node = new GameObject(name);
 		node.transform.SetParent (this.transform);
 		node.AddComponent<Node>();
 		return node.GetComponent<Node> ();
