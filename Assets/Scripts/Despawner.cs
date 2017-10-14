@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Despawner : MonoBehaviour {
-    public int count = 0;
-    public int score = 0;
+    public static int count = 0;
+    public static int score = 0;
 
     // vars for coinging old ppl types
-    public int R = 0;
-    public int G = 0;
-    public int B = 0;
+    public static int R = 0;
+    public static int G = 0;
+    public static int B = 0;
 
     // Use this for initialization
     void Start() {
