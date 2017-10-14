@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 
 public class Elevator : MonoBehaviour {
 	public int startPositionX;
@@ -23,24 +23,44 @@ public class Elevator : MonoBehaviour {
 		}
 	}
 	void ConnectNode(){
-		
+		//must be called from one of the close door functions
+		Node leftE = nodes[0];
+		Node rightE = nodes [(nodes.Length - 1)];
+		Node leftFStart = floor.leftNo
+
 	}
 	void DisConnectNode(){
+		//must be called from one of the close door functions
 
 	}
 
 	void CloseLeftDoor(){
-		floor.left.Close ();
-
+		if (floor != null) {
+			floor.left.Close ();
+		} else {
+			throw Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
 	void OpenLeftDoor(){
-		floor.left.Open ();
+		if (floor != null) {
+			floor.left.Open ();
+		} else {
+			throw Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
 	void CloseRightDoor(){
-		floor.right.Close ();
+		if (floor != null) {
+			floor.right.Close ();
+		} else {
+			throw Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
 	void OpenRightDoor(){
-		floor.right.Open ();
+		if (floor != null) {
+			floor.right.Open ();
+		} else {
+			throw Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
 
 	// Use this for initialization
