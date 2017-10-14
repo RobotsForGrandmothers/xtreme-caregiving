@@ -5,6 +5,7 @@ using System;
 
 public class Node : MonoBehaviour {
 	bool reserved = false;
+	public Person reserver { get; private set; }
 	public Node left;
 	public Node right;
 
@@ -12,17 +13,23 @@ public class Node : MonoBehaviour {
 		return reserved;
 	}
 
-	public void Reserve() {
+	public void Reserve(Person reserver) {
 		if (!reserved) {
 			reserved = true;
+			this.reserver = reserver;
 		} else {
 			throw new Exception ("The node is already reserved");
 		}
 	}
 
-	public void Unreserve() {
+	public void Unreserve(Person reserver) {
 		if (reserved) {
-			reserved = false;
+			if (reserver == this.reserver) {
+				reserved = false;
+				this.reserver = null;
+			} else {
+				throw new Exception ("The node was not reserved by " + reserver);
+			}
 		} else {
 			throw new Exception ("The node has not been reserved");
 		}
