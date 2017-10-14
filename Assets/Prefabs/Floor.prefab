@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4298990998776692}
   - component: {fileID: 212229058484372780}
   - component: {fileID: 114435248441635208}
+  - component: {fileID: 61151400229772054}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -41,6 +42,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61151400229772054
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1158991720238024}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &114435248441635208
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,9 +79,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 1162778096844468, guid: 1aea35c8299db4eeaa75c9c8a2a721a6, type: 2}
-  halfLength: 0
-  nodeSpacing: 1
-  middleWidth: 1
+  _middleWidth: 1
+  left: {fileID: 0}
+  right: {fileID: 0}
 --- !u!212 &212229058484372780
 SpriteRenderer:
   m_ObjectHideFlags: 1
