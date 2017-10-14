@@ -8,6 +8,7 @@ public class Node : MonoBehaviour {
 	public Person reserver { get; private set; }
 	public Node left;
 	public Node right;
+	public bool inElevator;
 
 	public bool IsReserved() {
 		return reserved;
