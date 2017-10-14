@@ -8,6 +8,7 @@ public class PersonSpawner : MonoBehaviour {
 	public float timeToSpawn = 10f;
 	private float nextSpawnTime;
 	public Person[] personPrefabs;
+	System.Random rand = new System.Random ((int)(0xa2d10f76 ^ (int)System.DateTime.Now.TimeOfDay.TotalMilliseconds)); // because it works
 
 	void Start() {
 		nextSpawnTime = firstSpawnTime;
@@ -22,7 +23,6 @@ public class PersonSpawner : MonoBehaviour {
 	}
 
 	void Spawn() {
-		System.Random rand = new System.Random ();
 		Person personPrefab = personPrefabs[rand.Next (personPrefabs.Length)];
 		Node node = nodeGetter();
 
