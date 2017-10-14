@@ -5,6 +5,8 @@ using System;
 
 public class Node : MonoBehaviour {
 	bool reserved = false;
+	public Node left;
+	public Node right;
 
 	public void Reserve() {
 		if (!reserved) {

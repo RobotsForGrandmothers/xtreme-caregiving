@@ -17,6 +17,11 @@ public class Floor : MonoBehaviour {
 			node.AddComponent<Node>();
 			nodes [i] = node.GetComponent<Node>();
 			nodes [i].transform.transform.localPosition = new Vector2 (i * nodeSpacing, 0);
+
+			if (i > 0) {
+				nodes [i].left = nodes [i - 1];
+				nodes [i - 1].right = nodes [i];
+			}
 		}
 	}
 }
