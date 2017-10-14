@@ -28,12 +28,12 @@ public class Floor : MonoBehaviour {
 		// delete old nodes
 		if (leftNodes != null) {
 			foreach (Node node in leftNodes) {
-				Destroy (node);
+				Destroy (node.gameObject);
 			}
 		}
 		if (rightNodes != null) {
 			foreach (Node node in rightNodes) {
-				Destroy (node);
+				Destroy (node.gameObject);
 			}
 		}
 
