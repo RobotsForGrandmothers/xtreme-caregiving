@@ -32,6 +32,9 @@ public class Floor : MonoBehaviour {
 		left.transform.localPosition = new Vector2(-middleWidth / 2, 0);
 		right = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
 		right.transform.localPosition = new Vector2(+middleWidth / 2, 0);
+		Vector3 rightScale = right.transform.localScale;
+		rightScale.x *= -1;
+		right.transform.localScale = rightScale;
 
 		RecreateNodes ();
 
