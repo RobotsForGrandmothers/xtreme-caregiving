@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-
+[RequireComponent(typeof(Collider2D))]
 public class Elevator : MonoBehaviour {
-	public int startPositionX;
-	public int startPositionY;
 	public int numNodesInElevator;
 
 	private Floor floor;
-	private int[] position;
 	private Node[] nodes;
+
+	public Floor GetElevatorFloor(){
+		return floor;
+	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.GetComponent<Floor>() != null) {
@@ -22,25 +24,74 @@ public class Elevator : MonoBehaviour {
 			floor = null;
 		}
 	}
-	void ConnectNode(){
-		
+	void ConnectNode(bool Left){
+		//must be called from one of the close door functions
+		if (Left) {
+			Node leftE = nodes [0];
+			Node leftFIn = floor.GetEntranceLeft ();
+			Node leftFOut = floor.GetExitLeft ();
+
+			leftE.left = leftFOut;
+			leftFIn.right = leftE;
+		} else {
+			Node rightE = nodes [(nodes.Length - 1)];
+			Node rightFIn = floor.GetEntranceRight ();
+			Node rightFOut = floor.GetExitRight ();
+
+			rightE.right = rightFOut;
+			rightFIn.left = rightE;
+		}
+
 	}
-	void DisConnectNode(){
+	void DisConnectNode(bool Left){
+		//must be called from one of the close door functions
+		if (Left) {
+			Node leftE = nodes [0];
+			Node leftFIn = floor.GetEntranceLeft ();
+
+			leftE.left = null;
+			leftFIn.right = null;
+		} else {
+			Node rightE = nodes [(nodes.Length - 1)];
+			Node rightFIn = floor.GetEntranceRight ();
+
+			rightE.right = null;
+			rightFIn.left = null;
+		}
 
 	}
 
-	void CloseLeftDoor(){
-		floor.left.Close ();
-
+	public void CloseLeftDoor(){
+		if (floor != null) {
+			floor.left.Close ();
+			DisConnectNode (true);
+		} else {
+			throw new Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
-	void OpenLeftDoor(){
-		floor.left.Open ();
+	public void OpenLeftDoor(){
+		if (floor != null) {
+			floor.left.Open ();
+			ConnectNode (true);
+		} else {
+			throw new Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
-	void CloseRightDoor(){
-		floor.right.Close ();
+	public void CloseRightDoor(){
+		if (floor != null) {
+			floor.right.Close ();
+			DisConnectNode (false);
+		} else {
+			throw new Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
-	void OpenRightDoor(){
-		floor.right.Open ();
+	public void OpenRightDoor(){
+		if (floor != null) {
+			floor.right.Open ();
+			ConnectNode (false);
+		} else {
+			throw new Exception ("Cannot close floor door because elevator is not at a floor");
+		}
 	}
 
 	// Use this for initialization
@@ -57,20 +108,6 @@ public class Elevator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetMouseButtonDown (0)) {
-			if (floor.left.IsOpen()) {
-				CloseLeftDoor ();
-			} else {
-				OpenLeftDoor ();
-			}
-		}
-		else if (Input.GetMouseButtonDown(1)){
-			if (floor.right.IsOpen()) {
-				CloseRightDoor ();
-			} else {
-				OpenRightDoor ();
-			}
-		}
 
 	}
 }

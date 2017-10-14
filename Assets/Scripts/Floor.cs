@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class Floor : MonoBehaviour {
 	public GameObject doorPrefab;
 
@@ -33,6 +34,9 @@ public class Floor : MonoBehaviour {
 		right.transform.localPosition = new Vector2(+middleWidth / 2, 0);
 
 		RecreateNodes ();
+
+		// set up collider for elevator
+		this.GetComponent<BoxCollider2D> ().size = new Vector2 (middleWidth, 1);
 	}
 
 	void RecreateNodes() {
@@ -103,12 +107,27 @@ public class Floor : MonoBehaviour {
 		return rightNodes [0];
 	}
 	public Node GetExitLeft() {
-		return leftNodes [leftNodes.Length];
+		return leftNodes [leftNodes.Length - 1];
 	}
 	public Node GetExitRight() {
-		return rightNodes [rightNodes.Length];
+		return rightNodes [rightNodes.Length - 1];
 	}
-
+	public Node[] GetOutNodesLeft() {
+		Node[] outNodes = new Node[halfLength];
+		for (int i = 0; i < halfLength; ++i) {
+			int index = 2 * halfLength - i - 1;
+			outNodes [i] = leftNodes [index];
+		}
+		return outNodes;
+	}
+	public Node[] GetOutNodesRight() {
+		Node[] outNodes = new Node[halfLength];
+		for (int i = 0; i < halfLength; ++i) {
+			int index = 2 * halfLength - i - 1;
+			outNodes [i] = rightNodes [index];
+		}
+		return outNodes;
+	}
 
 	Node CreateNode(string name) {
 		GameObject node = new GameObject(name);
