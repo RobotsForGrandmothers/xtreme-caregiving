@@ -11,8 +11,8 @@ public abstract class Person : MonoBehaviour {
 	public Node target {
 		get { return _target; }
 		set { 
-			if (value != null) value.Reserve ();
-			if (_target != null) _target.Unreserve ();
+			if (value != null) value.Reserve (this);
+			if (_target != null) _target.Unreserve (this);
 			_target = value;
 
 			if (_target != null) {
@@ -56,12 +56,26 @@ public abstract class Person : MonoBehaviour {
 					isFacingRight = false;
 				} else if (!target.right.IsReserved ()) { // keep moving if we can
 					target = target.right;
+				} else { // try to swap if we can
+					if (target.right.left == target && !target.right.reserver.isFacingRight) {
+						Node otherTarget = target;
+						target = null;
+						otherTarget.right.reserver.target = otherTarget;
+						target = otherTarget.right;
+					}
 				}
 			} else {
 				if (target.left == null) {// turn if we must
 					isFacingRight = true;
 				} else if (!target.left.IsReserved ()) { // keep moving if we can
 					target = target.left;
+				} else { // try to swap if we can
+					if (target.left.right == target && target.left.reserver.isFacingRight) {
+						Node otherTarget = target;
+						target = null;
+						otherTarget.left.reserver.target = otherTarget;
+						target = otherTarget.left;
+					}
 				}
 			}
 		}
