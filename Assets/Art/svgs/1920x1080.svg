@@ -106,7 +106,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
      inkscape:cx="780.87871"
-     inkscape:cy="833.09862"
+     inkscape:cy="429.0376"
      inkscape:document-units="px"
      inkscape:current-layer="g4546"
      showgrid="false"
@@ -5084,14 +5084,11 @@ RU5ErkJggg==
            id="path4718-9"
            d="m 812.70556,67.078918 0,600.000002"
            style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.36686389" />
-        <rect
+        <path
            transform="matrix(0.96812423,0,0,1.0395948,16.083673,-19.116097)"
-           y="465.65036"
-           x="-311.93741"
-           height="34.285713"
-           width="1498.5714"
-           id="rect4618"
-           style="opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4694)" />
+           style="opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter4694)"
+           d="m -311.93741,465.65036 1498.57141,0 0,34.28571 -1498.57141,0 z"
+           id="rect4618" />
       </g>
       <g
          id="g4580-2"
