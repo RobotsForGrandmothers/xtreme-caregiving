@@ -16,6 +16,9 @@ public class Elevator : MonoBehaviour {
 		set { _nodeSpacing = value; RepositionNodes (); }
 	}
 
+	public float maxHeight;
+	public float minHeight;
+
 	private Floor _floor;
 	private Floor floor {
 		get { return _floor; }
