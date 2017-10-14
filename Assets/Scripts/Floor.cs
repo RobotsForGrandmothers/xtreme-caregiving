@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour {
 	public int length;
-	public float nodeSpacing;
+	public float nodeSpacing = 1;
 	Node[] nodes;
 
 	// Use this for initialization

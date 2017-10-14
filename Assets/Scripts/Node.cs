@@ -1,16 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Node : MonoBehaviour {
+	bool reserved = false;
 
-	// Use this for initialization
-	void Start () {
-		
+	public void Reserve() {
+		if (!reserved) {
+			reserved = true;
+		} else {
+			throw new Exception ("The node is already reserved");
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void Unreserve() {
+		if (reserved) {
+			reserved = false;
+		} else {
+			throw new Exception ("The node has not been reserved");
+		}
 	}
 }
