@@ -16,7 +16,17 @@ public class Elevator : MonoBehaviour {
 		set { _nodeSpacing = value; RepositionNodes (); }
 	}
 
-	private Floor floor;
+	private Floor _floor;
+	private Floor floor {
+		get { return _floor; }
+		set { 
+			if (_floor != null) {
+				DisConnectNode (true);
+				DisConnectNode (false);
+			}
+			_floor = value;
+		}
+	}
 	private Node[] nodes;
 
 	public Floor GetElevatorFloor(){
@@ -42,34 +52,36 @@ public class Elevator : MonoBehaviour {
 			Node leftFIn = floor.GetEntranceLeft ();
 			Node leftFOut = floor.GetExitLeft ();
 
-			leftE.left = leftFOut;
-			leftFIn.right = leftE;
+			leftE.left = leftFIn;
+			leftFOut.right = leftE;
 		} else {
 			Node rightE = nodes [(nodes.Length - 1)];
 			Node rightFIn = floor.GetEntranceRight ();
 			Node rightFOut = floor.GetExitRight ();
 
-			rightE.right = rightFOut;
-			rightFIn.left = rightE;
+			rightE.right = rightFIn;
+			rightFOut.left = rightE;
 		}
 
+		Debug.Log ("Connected floor nodes on " + (Left ? "left" : "right") + " side");
 	}
 	void DisConnectNode(bool Left){
 		//must be called from one of the close door functions
 		if (Left) {
 			Node leftE = nodes [0];
-			Node leftFIn = floor.GetEntranceLeft ();
+			Node leftFOut = floor.GetExitLeft ();
 
 			leftE.left = null;
-			leftFIn.right = null;
+			leftFOut.right = null;
 		} else {
 			Node rightE = nodes [(nodes.Length - 1)];
-			Node rightFIn = floor.GetEntranceRight ();
+			Node rightFOut = floor.GetExitRight ();
 
 			rightE.right = null;
-			rightFIn.left = null;
+			rightFOut.left = null;
 		}
-
+		
+		Debug.Log ("Disconnected floor nodes on " + (Left ? "left" : "right") + " side");
 	}
 
 	public void CloseLeftDoor(){
@@ -125,8 +137,8 @@ public class Elevator : MonoBehaviour {
 			nodes [i] = CreateNode("Node " + i);
 
 			if (i > 0) {
-				//leftNodes [i - 1].left = leftNodes [i];
-				//rightNodes [i - 1].right = rightNodes [i];
+				nodes [i - 1].right = nodes [i];
+				nodes [i].left = nodes [i - 1];
 			}
 		}
 

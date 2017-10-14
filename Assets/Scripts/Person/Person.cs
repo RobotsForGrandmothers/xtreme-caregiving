@@ -14,6 +14,11 @@ public abstract class Person : MonoBehaviour {
 			if (value != null) value.Reserve ();
 			if (_target != null) _target.Unreserve ();
 			_target = value;
+
+			if (_target != null) {
+				this.transform.parent = _target.transform;
+				this.transform.localPosition = new Vector2 (this.transform.localPosition.x, 0);
+			}
 			moving = true;
 		}
 	}
