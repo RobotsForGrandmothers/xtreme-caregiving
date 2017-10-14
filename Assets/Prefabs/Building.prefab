@@ -74,7 +74,7 @@ MonoBehaviour:
   nodeSpacing: 1
   elevatorWidth: 5
   floorHeight: 2
-  floorPrefab: {fileID: 1158991720238024, guid: ac6a34bc795c44eaf92199e7198fbfe5,
+  floorPrefab: {fileID: 114435248441635208, guid: ac6a34bc795c44eaf92199e7198fbfe5,
     type: 2}
-  elevatorPrefab: {fileID: 1773310144837350, guid: 19f9c43b28fd04beca27cb1ea2e467a0,
+  elevatorPrefab: {fileID: 114891144037115464, guid: 19f9c43b28fd04beca27cb1ea2e467a0,
     type: 2}
