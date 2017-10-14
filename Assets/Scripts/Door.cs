@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+[RequireComponent(typeof(Collider2D))]
 public class Door : MonoBehaviour {
 	bool _open = false;
 	bool open {
@@ -13,6 +14,20 @@ public class Door : MonoBehaviour {
 		}
 	}
 
+	HashSet<Person> insideDoor = new HashSet<Person> ();
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.GetComponent<Person> () != null) {
+			insideDoor.Add (other.GetComponent<Person>());
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D other) {
+		if (other.GetComponent<Person> () != null) {
+			insideDoor.Remove (other.GetComponent<Person>());
+		}
+	}
+
 	public bool IsOpen(){
 		return open;
 	}
@@ -20,6 +35,14 @@ public class Door : MonoBehaviour {
 	public void Close(){
 		if (open) {
 			open = false;
+			List<GameObject> toDestroy = new List<GameObject> ();
+			foreach (Person p in insideDoor) {
+				toDestroy.Add (p.gameObject);
+			}
+			insideDoor.Clear ();
+			for (int i = 0; i < toDestroy.Count; ++i) {
+				Destroy (toDestroy[i]);
+			}
 		} else {
 			throw new Exception ("door is already closed");
 		}
@@ -34,7 +57,7 @@ public class Door : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
