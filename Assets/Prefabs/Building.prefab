@@ -19,7 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4068317709502704}
-  - component: {fileID: 114117427637813484}
+  - component: {fileID: 114659643253582710}
+  - component: {fileID: 114558781269918394}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -40,7 +41,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114117427637813484
+--- !u!114 &114558781269918394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491773662894926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244563fd0fffa42c384a897aba1364ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstSpawnTime: 0
+  timeToSpawn: 10
+  personPrefabs:
+  - {fileID: 114871603889664332, guid: 36aa3c50629834ee1b9e2035d90ec4c3, type: 2}
+--- !u!114 &114659643253582710
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -54,8 +70,8 @@ MonoBehaviour:
   floors: 0
   floorLength: 5
   nodeSpacing: 1
-  elevatorWidth: 6
-  floorHeight: 1
+  elevatorWidth: 5
+  floorHeight: 2
   floorPrefab: {fileID: 1158991720238024, guid: ac6a34bc795c44eaf92199e7198fbfe5,
     type: 2}
   elevatorPrefab: {fileID: 0}

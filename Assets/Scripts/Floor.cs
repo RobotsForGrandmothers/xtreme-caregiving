@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
 public class Floor : MonoBehaviour {
 	public GameObject doorPrefab;
 
@@ -103,10 +104,10 @@ public class Floor : MonoBehaviour {
 		return rightNodes [0];
 	}
 	public Node GetExitLeft() {
-		return leftNodes [leftNodes.Length];
+		return leftNodes [leftNodes.Length - 1];
 	}
 	public Node GetExitRight() {
-		return rightNodes [rightNodes.Length];
+		return rightNodes [rightNodes.Length - 1];
 	}
 	public Node[] GetOutNodesLeft() {
 		Node[] outNodes = new Node[halfLength];
