@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PersonRed : Person {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
+	// Use this for initialization
+	new void Start () {
+		base.Start ();
+	}
+
 	// Update is called once per frame
-	void Update () {
-		
+	new void Update () {
+		base.Update ();
 	}
 }
