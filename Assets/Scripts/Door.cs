@@ -6,14 +6,14 @@ using System;
 public class Door : MonoBehaviour {
 	bool open = false;
 
-	public bool Close(){
+	public void Close(){
 		if (open) {
 			open = false;
 		} else {
 			throw new Exception ("door is already closed");
 		}
 	}
-	public bool Open(){
+	public void Open(){
 		if (!open) {
 			open = true;
 		} else {
