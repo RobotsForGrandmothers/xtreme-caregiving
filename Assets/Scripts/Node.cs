@@ -8,6 +8,10 @@ public class Node : MonoBehaviour {
 	public Node left;
 	public Node right;
 
+	public bool IsReserved() {
+		return reserved;
+	}
+
 	public void Reserve() {
 		if (!reserved) {
 			reserved = true;
