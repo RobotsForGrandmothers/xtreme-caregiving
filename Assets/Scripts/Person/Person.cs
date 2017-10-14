@@ -24,9 +24,15 @@ public abstract class Person : MonoBehaviour {
 	}
 	private bool moving;
 
-	// Use this for initialization
-	protected void Start () {
-		
+    // on destroy
+    private void OnDestroy()
+    {
+        target = null;
+    }
+
+    // Use this for initialization
+    protected void Start () {
+	
 	}
 	
 	// Update is called once per frame
