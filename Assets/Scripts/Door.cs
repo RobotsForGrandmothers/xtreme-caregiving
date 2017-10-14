@@ -6,6 +6,10 @@ using System;
 public class Door : MonoBehaviour {
 	bool open = false;
 
+	public bool IsOpen(){
+		return open;
+	}
+
 	public void Close(){
 		if (open) {
 			open = false;
