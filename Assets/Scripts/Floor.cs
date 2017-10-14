@@ -6,9 +6,20 @@ public class Floor : MonoBehaviour {
 	public GameObject doorPrefab;
 
 	int _halfLength;
-	public int halfLength { get { return _halfLength; } set { _halfLength = value; RecreateNodes (); } }
-	public float nodeSpacing = 1;
-	public float middleWidth = 1;
+	public int halfLength { 
+		get { return _halfLength; } 
+		set { _halfLength = value; RecreateNodes (); } 
+	}
+	float _nodeSpacing = 1;
+	public float nodeSpacing {
+		get { return _nodeSpacing; }
+		set { _nodeSpacing = value; RepositionNodes (); }
+	}
+	public float _middleWidth = 1;
+	public float middleWidth {
+		get { return _middleWidth; }
+		set { _middleWidth = value; RepositionNodes (); }
+	}
 	Node[] leftNodes;
 	Node[] rightNodes;
 	public Door left;
@@ -44,8 +55,6 @@ public class Floor : MonoBehaviour {
 		for (int i = 0; i < halfLength; ++i) {
 			leftNodes [i] = CreateNode("Node Left In " + i);
 			rightNodes [i] = CreateNode ("Node Right In " + i);
-			leftNodes [i].transform.transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
-			rightNodes [i].transform.transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
 
 			if (i > 0) {
 				leftNodes [i - 1].left = leftNodes [i];
@@ -58,19 +67,32 @@ public class Floor : MonoBehaviour {
 			int index = 2 * halfLength - i - 1;
 			leftNodes [index] = CreateNode("Node Left Out " + i);
 			rightNodes [index] = CreateNode ("Node Right Out " + i);
-			leftNodes [index].transform.transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
-			rightNodes [index].transform.transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
 
 			if (i > 0) {
 				leftNodes [index].right = leftNodes [index + 1];
 				rightNodes [index].left = rightNodes [index + 1];
 			}
 		}
-
+		
+		// link up going in and going out
 		if (halfLength > 0) {
-			// link up going in and going out
 			leftNodes [halfLength - 1].right = leftNodes [halfLength];
 			rightNodes [halfLength - 1].left = rightNodes [halfLength];
+		}
+
+		// reposition new nodes
+		RepositionNodes ();
+	}
+
+	void RepositionNodes() {
+		for (int i = 0; i < halfLength; ++i) {
+			leftNodes [i].transform.transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+			rightNodes [i].transform.transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+		}
+		for (int i = 0; i < halfLength; ++i) {
+			int index = 2 * halfLength - i - 1;
+			leftNodes [index].transform.transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+			rightNodes [index].transform.transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
 		}
 	}
 

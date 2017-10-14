@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4068317709502704}
-  - component: {fileID: 114256261947333618}
+  - component: {fileID: 114117427637813484}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114256261947333618
+--- !u!114 &114117427637813484
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -51,8 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f7f596627e6454e8ba75a50298ee2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floors: 5
+  floors: 0
   floorLength: 5
+  nodeSpacing: 1
+  elevatorWidth: 6
   floorHeight: 1
   floorPrefab: {fileID: 1158991720238024, guid: ac6a34bc795c44eaf92199e7198fbfe5,
     type: 2}
