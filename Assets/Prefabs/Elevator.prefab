@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114891144037115464}
   m_Layer: 0
   m_Name: Elevator
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,8 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506f0960971194d139a1e7c195c2e756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPositionX: 0
-  startPositionY: 0
   numNodesInElevator: 5
 --- !u!212 &212349463867966248
 SpriteRenderer:
