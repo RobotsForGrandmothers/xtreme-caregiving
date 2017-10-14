@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour {
         LookAround();
     }
 
-    public float returnDelay = 3f;
+    public float returnDelay = 1f;
     private float returnTime;
     bool GetInput() {
         mouseXInput = Input.GetAxis("Mouse X");
@@ -49,15 +49,5 @@ public class CameraController : MonoBehaviour {
     void ReturnToPlayer() {
         Debug.Log("Returning to Player");
         transform.position = Vector3.SmoothDamp(transform.position, elevator.transform.TransformPoint(cameraPosition), ref velocityCameraFollow, smoothTime);
-    }
-
-
-
-
-    public float scale(float OldMin, float OldMax, float NewMin, float NewMax, float OldValue) {
-        float OldRange = (OldMax - OldMin);
-        float NewRange = (NewMax - NewMin);
-        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
-        return (NewValue);
     }
 }
