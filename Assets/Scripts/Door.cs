@@ -42,6 +42,8 @@ public class Door : MonoBehaviour {
 			insideDoor.Clear ();
 			for (int i = 0; i < toDestroy.Count; ++i) {
 				Destroy (toDestroy[i]);
+                Despawner.deaths += 1;
+                Debug.Log("another dead person, total = " + Despawner.deaths);
 			}
 		} else {
 			throw new Exception ("door is already closed");

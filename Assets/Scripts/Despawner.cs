@@ -5,7 +5,7 @@ using UnityEngine;
 public class Despawner : MonoBehaviour {
     public static int count = 0;
     public static int score = 0;
-
+    public static int deaths = 0;
 
 
     // vars for coinging old ppl types
