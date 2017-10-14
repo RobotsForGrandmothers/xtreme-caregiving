@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Elevator))]
 public class ElevatorControl : MonoBehaviour {
-	public Elevator elevator;
+	private Elevator elevator;
 	public int maxHight;
 	public int minHight;
 
 
 	// Use this for initialization
 	void Start () {
-		
+		elevator = this.GetComponent<Elevator> ();
 	}
 	
 	// Update is called once per frame
@@ -21,13 +22,15 @@ public class ElevatorControl : MonoBehaviour {
 			} else {
 				elevator.OpenLeftDoor ();
 			}
-		} else if (Input.GetMouseButtonDown (1)) {
+		} 
+		if (Input.GetMouseButtonDown (1)) {
 			if (elevator.GetElevatorFloor ().right.IsOpen ()) {
 				elevator.CloseRightDoor ();
 			} else {
 				elevator.OpenRightDoor ();
 			}
-		} else if (Input.GetAxis ("Mouse ScrollWheel") != 0) {
+		}
+		if (Input.GetAxis ("Mouse ScrollWheel") != 0) {
 			Vector2 position = elevator.transform.position;
 			position.y += Input.GetAxis ("Mouse ScrollWheel");
 			elevator.transform.position = position;

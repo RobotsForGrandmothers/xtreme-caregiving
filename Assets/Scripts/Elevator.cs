@@ -5,7 +5,16 @@ using System;
 
 [RequireComponent(typeof(Collider2D))]
 public class Elevator : MonoBehaviour {
-	public int numNodesInElevator;
+	int _numNodesInElevator;
+	public int numNodesInElevator {
+		get { return _numNodesInElevator; }
+		set { _numNodesInElevator = value; RecreateNodes (); }
+	}
+	float _nodeSpacing = 1;
+	public float nodeSpacing {
+		get { return _nodeSpacing; }
+		set { _nodeSpacing = value; RepositionNodes (); }
+	}
 
 	private Floor floor;
 	private Node[] nodes;
@@ -17,10 +26,12 @@ public class Elevator : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.GetComponent<Floor>() != null) {
 			floor = other.GetComponent<Floor> ();
+			Debug.Log ("Elevator reached floor " + floor);
 		}
 	}
 	void OnTriggerExit2D(Collider2D other){
 		if (other.GetComponent<Floor>() == floor){
+			Debug.Log ("Elevator left floor " + floor);
 			floor = null;
 		}
 	}
@@ -96,11 +107,46 @@ public class Elevator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		nodes = new Node[numNodesInElevator];
+		RecreateNodes ();
 	}
 
+	void RecreateNodes() {
+		// delete old nodes
+		if (nodes != null) {
+			foreach (Node node in nodes) {
+				Destroy (node.gameObject);
+			}
+		}
 
-	
+		nodes = new Node[numNodesInElevator];
+
+		// create nodes going into each side of the floor
+		for (int i = 0; i < numNodesInElevator; ++i) {
+			nodes [i] = CreateNode("Node " + i);
+
+			if (i > 0) {
+				//leftNodes [i - 1].left = leftNodes [i];
+				//rightNodes [i - 1].right = rightNodes [i];
+			}
+		}
+
+		// reposition new nodes
+		RepositionNodes ();
+	}
+
+	void RepositionNodes() {
+		for (int i = 0; i < numNodesInElevator; ++i) {
+			nodes [i].transform.transform.localPosition = new Vector2 ((i - (float)(numNodesInElevator - 1) / 2) * nodeSpacing, 0);
+		}
+	}
+
+	Node CreateNode(string name) {
+		GameObject node = new GameObject(name);
+		node.transform.SetParent (this.transform);
+		node.AddComponent<Node>();
+		return node.GetComponent<Node> ();
+	}
+
 	// Update is called once per frame
 	void Update () {
 
