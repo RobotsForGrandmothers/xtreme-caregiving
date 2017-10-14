@@ -96,12 +96,7 @@ public class Elevator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		position = new int[2];
-		position [0] = startPositionX;
-		position [1] = startPositionY;
-
 		nodes = new Node[numNodesInElevator];
-
 	}
 
 
