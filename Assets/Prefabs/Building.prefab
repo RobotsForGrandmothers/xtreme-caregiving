@@ -100,11 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSpawnTime: 0
-  timeToSpawn: 10
+  timeToSpawn: 5
   personPrefabs:
   - {fileID: 114871603889664332, guid: 36aa3c50629834ee1b9e2035d90ec4c3, type: 2}
   - {fileID: 114437257565458818, guid: 5a10c3f09d9984b4d906398bddff7913, type: 2}
   - {fileID: 114866707777693772, guid: 1949a1d4f4bad497ea7c4e98b38a545c, type: 2}
+  personSpeed: 2
+  personHungerRate: 1.6666666
 --- !u!114 &114659643253582710
 MonoBehaviour:
   m_ObjectHideFlags: 1

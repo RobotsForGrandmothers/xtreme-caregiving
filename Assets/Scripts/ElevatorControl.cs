@@ -15,14 +15,14 @@ public class ElevatorControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			if (elevator.GetElevatorFloor ().left.IsOpen ()) {
+			if (elevator.GetElevatorFloor ().doorLeft.IsOpen ()) {
 				elevator.CloseLeftDoor ();
 			} else {
 				elevator.OpenLeftDoor ();
 			}
 		} 
 		if (Input.GetMouseButtonDown (1)) {
-			if (elevator.GetElevatorFloor ().right.IsOpen ()) {
+			if (elevator.GetElevatorFloor ().doorRight.IsOpen ()) {
 				elevator.CloseRightDoor ();
 			} else {
 				elevator.OpenRightDoor ();

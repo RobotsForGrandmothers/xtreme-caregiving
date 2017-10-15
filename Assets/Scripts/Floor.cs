@@ -4,8 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class Floor : MonoBehaviour {
+	static System.Random rand = new System.Random ();
 
     public List<Sprite> sprites;
+	public Sprite spriteShaft;
 	public GameObject doorPrefab;
 	
 	[SerializeField] float _doorWidth = 1;
@@ -33,19 +35,30 @@ public class Floor : MonoBehaviour {
 	Node[] rightNodes;
 	public Node leftNodeShaft { get; private set; }
 	public Node rightNodeShaft { get; private set; }
-	public Door left;
-	public Door right;
+	public Door doorLeft;
+	public Door doorRight;
+	public SpriteRenderer spriteRendererLeft;
+	public SpriteRenderer spriteRendererRight;
+	public SpriteRenderer spriteRendererShaft;
 
 	// Use this for initialization
-	void Start () {
-		left = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
-		left.transform.localPosition = new Vector2(-(middleWidth + doorWidth) / 2, 0);
-		right = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
-		right.transform.localPosition = new Vector2(+(middleWidth + doorWidth) / 2, 0);
-		Vector3 rightScale = right.transform.localScale;
+	void Awake () {
+		// create doors
+		doorLeft = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
+		doorRight = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
+		Vector3 rightScale = doorRight.transform.localScale;
 		rightScale.x *= -1;
-		right.transform.localScale = rightScale;
+		doorRight.transform.localScale = rightScale;
 
+		// create sprites
+		spriteRendererLeft.transform.parent = this.transform;
+		spriteRendererRight.transform.parent = this.transform;
+		spriteRendererShaft.transform.parent = this.transform;
+		spriteRendererLeft.sprite = sprites [rand.Next (sprites.Count)];
+		spriteRendererRight.sprite = sprites [rand.Next (sprites.Count)];
+		spriteRendererShaft.sprite = spriteShaft;
+
+		// create nodes and reposition nodes and doors and sprites
 		RecreateNodes ();
 
 		// set up collider for elevator
@@ -114,6 +127,16 @@ public class Floor : MonoBehaviour {
 	}
 
 	void RepositionNodes() {
+		// reposition doors
+		doorLeft.transform.localPosition = new Vector2(-(middleWidth + doorWidth) / 2, 0);
+		doorRight.transform.localPosition = new Vector2(+(middleWidth + doorWidth) / 2, 0);
+
+		// reposition sprites
+		spriteRendererLeft.transform.localPosition = new Vector2 (-(middleWidth / 2 + doorWidth + halfLength / 2), 0);
+		spriteRendererRight.transform.localPosition = new Vector2 (+(middleWidth / 2 + doorWidth + halfLength / 2), 0);
+		spriteRendererShaft.transform.localPosition = Vector2.zero;
+
+		// reposition nodes
 		leftNodeShaft.transform.localPosition = new Vector2 (-((middleWidth / 2 + doorWidth)), 0);
 		rightNodeShaft.transform.localPosition = new Vector2 (+((middleWidth / 2 + doorWidth)), 0);
 		for (int i = 0; i < halfLength; ++i) {

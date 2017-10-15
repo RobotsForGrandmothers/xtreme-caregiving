@@ -8,6 +8,8 @@ public class PersonSpawner : MonoBehaviour {
 	public float timeToSpawn = 10f;
 	private float nextSpawnTime;
 	public Person[] personPrefabs;
+	public float personSpeed = 2f;
+	public float personHungerRate = 100f / 30;
 	System.Random rand = new System.Random ((int)(0xa2d10f76 ^ (int)System.DateTime.Now.TimeOfDay.TotalMilliseconds)); // because it works
 
 	void Start() {
@@ -32,5 +34,7 @@ public class PersonSpawner : MonoBehaviour {
 		Person person = Instantiate (personPrefab).GetComponent<Person>();
 		person.transform.position = node.transform.position;
 		person.target = node;
+		person.hungerRate = personHungerRate;
+		person.speed = personSpeed;
 	}
 }
