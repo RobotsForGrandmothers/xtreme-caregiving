@@ -17,7 +17,7 @@ public abstract class Person : MonoBehaviour {
 			_crazy = value;
 			if (crazy) {
 				rendererModifier.sprite = crazySprite;
-			} else if (rendererModifier.sprite.Equals (crazySprite)) {
+			} else if (rendererModifier.sprite != null && rendererModifier.sprite.Equals (crazySprite)) {
 				rendererModifier.sprite = null;
 			}
 		}
