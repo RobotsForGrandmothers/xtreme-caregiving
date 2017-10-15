@@ -39,16 +39,17 @@ public class Door : MonoBehaviour {
 	public void Close(){
 		if (open) {
 			open = false;
-			List<GameObject> toDestroy = new List<GameObject> ();
+			//List<GameObject> toDestroy = new List<GameObject> ();
 			foreach (Person p in insideDoor) {
-				toDestroy.Add (p.gameObject);
+				//toDestroy.Add (p.gameObject);
+				p.Kill ();
 			}
 			insideDoor.Clear ();
-			for (int i = 0; i < toDestroy.Count; ++i) {
-				Destroy (toDestroy[i]);
-                Despawner.deaths += 1;
-                Debug.Log("another dead person, total = " + Despawner.deaths);
-			}
+			//for (int i = 0; i < toDestroy.Count; ++i) {
+			//	Destroy (toDestroy[i]);
+            //    Despawner.deaths += 1;
+            //    Debug.Log("another dead person, total = " + Despawner.deaths);
+			//}
 		} else {
 			throw new Exception ("door is already closed");
 		}

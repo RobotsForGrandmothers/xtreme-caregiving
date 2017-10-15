@@ -39,12 +39,14 @@ public abstract class Person : MonoBehaviour {
 	
 	}
 
-	void Kill() {
+	public void Kill() {
 		this.dead = true;
 		this.target = null;
 		this.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 		this.GetComponent<Rigidbody2D> ().velocity = speed * (isFacingRight ? Vector2.right : Vector2.left);
 		this.GetComponent<Rigidbody2D> ().angularVelocity = isFacingRight ? -180 : 180;
+
+		ScoreTracking.globalData.deaths += 1;
 	}
 
 	// Destroy when leaving the building collider
