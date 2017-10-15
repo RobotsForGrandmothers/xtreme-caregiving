@@ -6,11 +6,8 @@ public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
 
 	static System.Random rand = new System.Random();
-	
-	public List<Sprite> sprites;
-	public SpriteRenderer spriteRenderer;
 
-	public bool crazy;
+	public bool crazy = false;
 
     public float speed = 2f;
 	public float hungerRate = 100f / 30;
