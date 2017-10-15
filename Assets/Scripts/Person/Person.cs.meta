@@ -1,11 +1,13 @@
 fileFormatVersion: 2
 guid: 3758d6cd0037f304bbe6bbee1b074e37
-timeCreated: 1507951256
+timeCreated: 1508107747
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rendererModifier: {instanceID: 0}
+  - crazySprite: {fileID: 21300000, guid: 0bd95e77ed80846cea035a1a8dfad5a0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

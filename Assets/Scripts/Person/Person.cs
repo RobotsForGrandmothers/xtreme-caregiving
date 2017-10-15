@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
+	public enum CauseOfDeath { FALL, SLICE, STARVE };
 
 	static System.Random rand = new System.Random();
 
@@ -31,7 +32,7 @@ public abstract class Person : MonoBehaviour {
 		set { 
 			_hunger = value;
 			this.GetComponent<SpriteRenderer> ().color = new Color (1, 1 - (hunger / 100), 1 - (hunger / 100));
-			if (_hunger >= 100) this.Kill ();
+			if (_hunger >= 100) this.Kill (CauseOfDeath.STARVE);
 		}
 	}
     
@@ -75,15 +76,16 @@ public abstract class Person : MonoBehaviour {
 		isFacingRight = true;	
 	}
 
-	public void Kill() {
+	public void Kill(CauseOfDeath cod) {
 		this.dead = true;
 		this.transform.parent = null;
 		this.target = null;
+
+		ScoreTracking.globalData.deaths += 1;
+
 		this.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 		this.GetComponent<Rigidbody2D> ().velocity = speed * (isFacingRight ? Vector2.right : Vector2.left);
 		this.GetComponent<Rigidbody2D> ().angularVelocity = isFacingRight ? -180 : 180;
-
-		ScoreTracking.globalData.deaths += 1;
 	}
 
 	// Destroy when leaving the building collider
@@ -119,7 +121,7 @@ public abstract class Person : MonoBehaviour {
 			if (Mathf.Abs (deltaX) > Mathf.Abs (deltaTarget)) {
 				deltaX = deltaTarget;
 				moving = false;
-				if (target.isDeath) this.Kill ();
+				if (target.isDeath) this.Kill (CauseOfDeath.FALL);
 			}
 			position.x = position.x + deltaX;
 			this.transform.position = position;
