@@ -231,6 +231,12 @@ Prefab:
       propertyPath: timeToSpawn
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114659643253582710, guid: 8da33dcaae7d846c4bf61aa3749f7c24,
+        type: 2}
+      propertyPath: roofSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8127d169511d9b4daae3081ad9c09ae,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8da33dcaae7d846c4bf61aa3749f7c24, type: 2}
   m_IsPrefabParent: 0

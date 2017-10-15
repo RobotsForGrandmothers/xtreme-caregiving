@@ -15,6 +15,7 @@ public class Building : MonoBehaviour {
 	public Floor floorPrefab;
     public Floor dinerPrefab;
 	public Elevator elevatorPrefab;
+    public Sprite roofSprite;
 	System.Random rand = new System.Random ((int)(0xcea9e245 ^ (int)System.DateTime.Now.TimeOfDay.TotalMilliseconds)); // because it works
 
 	// Use this for initialization
@@ -41,6 +42,11 @@ public class Building : MonoBehaviour {
 
 			floorArray [i] = floor;
 		}
+
+        GameObject gobj = new GameObject();
+        gobj.AddComponent<SpriteRenderer>();
+        gobj.GetComponent<SpriteRenderer>().sprite = roofSprite;
+        gobj.transform.localPosition = new Vector2(0, (floorHeight * floorArray.Length)-0.25f);
 
 		// set node spawn function
 		this.GetComponent<PersonSpawner> ().nodeGetter = GetRandomNode;
