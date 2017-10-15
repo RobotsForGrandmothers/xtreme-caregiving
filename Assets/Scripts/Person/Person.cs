@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
 
-    public float speed = 1f;
+    public float speed = 2f;
 	public float hungerRate = 100 / 30;
 	float _hunger = 0;
 	public float hunger {
