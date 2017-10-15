@@ -37,9 +37,9 @@ public class Floor : MonoBehaviour {
 	public Node rightNodeShaft { get; private set; }
 	public Door doorLeft;
 	public Door doorRight;
-	SpriteRenderer spriteRendererLeft;
-	SpriteRenderer spriteRendererRight;
-	SpriteRenderer spriteRendererShaft;
+	public SpriteRenderer spriteRendererLeft;
+	public SpriteRenderer spriteRendererRight;
+	public SpriteRenderer spriteRendererShaft;
 
 	// Use this for initialization
 	void Awake () {
@@ -51,9 +51,6 @@ public class Floor : MonoBehaviour {
 		doorRight.transform.localScale = rightScale;
 
 		// create sprites
-		spriteRendererLeft = new GameObject("Left Floor Sprite", new System.Type[]{typeof(SpriteRenderer)}).GetComponent<SpriteRenderer>();
-		spriteRendererRight = new GameObject("Right Floor Sprite", new System.Type[]{typeof(SpriteRenderer)}).GetComponent<SpriteRenderer>();
-		spriteRendererShaft = new GameObject("Shaft Sprite", new System.Type[]{typeof(SpriteRenderer)}).GetComponent<SpriteRenderer>();
 		spriteRendererLeft.transform.parent = this.transform;
 		spriteRendererRight.transform.parent = this.transform;
 		spriteRendererShaft.transform.parent = this.transform;
