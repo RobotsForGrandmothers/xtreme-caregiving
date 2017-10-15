@@ -16,7 +16,10 @@
    id="svg3902"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="door sprite sheet.svg">
+   sodipodi:docname="door sprite sheet.svg"
+   inkscape:export-filename="/Users/joannehomik/Desktop/GitRepos/xtreme-caregiving/Assets/Art/door PNGs/doorSpriteSheet.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs3904" />
   <sodipodi:namedview
@@ -26,9 +29,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="322.35713"
-     inkscape:cy="-195.85714"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="298.26725"
+     inkscape:cy="127.39167"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -58,11 +61,13 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-52.642872,-42.505062)">
-    <image
-       y="42.505062"
-       x="52.642872"
-       id="image3927"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAK6klEQVR4
+    <g
+       id="g4829">
+      <image
+         width="89"
+         height="294"
+         preserveAspectRatio="none"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAK6klEQVR4
 nO2da08aTRSAz15All0uC3YXlPRtS1Mba3rRGNP0F/Tf9i+03xoT+VCbNE21aaPcFERhRYFl3g9T
 ORQvBYHdhT3Pp8ZAWR5mZ2ZnzpwjHB4ewnRgjFmWlcvlPnz48PPnz7W1tffv36+tramqKorilD50
 HOSp/u+SJEUikWw2axjG2traw4cPFUXxpggAEKbXLgCg0+mcnJwUi0Xbtk3TTCQSwWBQEITpfeI4
@@ -114,14 +119,14 @@ QMgFQi4QcoGQC8RfLu6OQ/PLHHyYc8F+cWHbNk//AwCpVCoej1/fwfaFC759WyqVdnZ2AGBjY4NX
 hRhoGv7qL+7GF+2Cn7o0TXN9fR0ATNO8MbmEL1zATSmyrr/GLy6G2bL0iwvO3VuW1Hci/wPUeqej
 sqzBNQAAAABJRU5ErkJggg==
 "
-       preserveAspectRatio="none"
-       height="294"
-       width="89" />
-    <image
-       y="42.505062"
-       x="169.64287"
-       id="image3947"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAH3ElEQVR4
+         id="image3927"
+         x="52.642872"
+         y="42.505062" />
+      <image
+         width="89"
+         height="294"
+         preserveAspectRatio="none"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAH3ElEQVR4
 nO3d32/SXADG8XNKUyiU3zATjUFJHFu806upV/7hu/BCb0wWTVyyqEyNsogTGIwCs+W8F1Wed2Rj
 G4O20Odz72Tf0V/nnLZSKSVICCGEFvQHCBG2ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2
 ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2ALYAtgC2ALYA
@@ -159,14 +164,15 @@ WCxWLBYfPXpUrVa9BUCBfIyA51Or1aplWSFZcxDweCfXokB4JhBFSPYXIcEWwBZ/rdvc8ty8YQp+
 LzBMwRYYpmALIf4NU7DFX1x/cQ5bAFsAWwBbAFsAW0DkrkdmLG6LVgvHcfr9/mXPpYxQC28WZsZz
 KSPUwlvuOOO5lP8BGFyazDjetwoAAAAASUVORK5CYII=
 "
-       preserveAspectRatio="none"
-       height="294"
-       width="89" />
-    <image
-       y="42.505062"
-       x="528.64288"
-       id="image3967"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAB/0lEQVR4
+         id="image3947"
+         x="169.64287"
+         y="42.505062" />
+      <image
+         style="opacity:0.016"
+         width="89"
+         height="294"
+         preserveAspectRatio="none"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAB/0lEQVR4
 nO3QMRHAMADEsG/5c05HQ2gGCYHPzzlnbNvevwMu4kW8iBfxIl7Ei3gRL+JFvIgX8SJexIt4ES/i
 RbyIF/EiXsSLeBEv4kW8iBfxIl7Ei3gRL+JFvIgX8SJexIt4ES/iRbyIF/EiXsSLeBEv4kW8iBfx
 Il7Ei3gRL+JFvIgX8SJexIt4ES/iRbyIF/EiXsSLeBEv4kW8iBfxIl7Ei3gRL+JFvIgX8SJexIt4
@@ -178,14 +184,15 @@ xIt4ES/iRbyIF/EiXsSLeBEv4kW8iBfxIl7Ei3gRL+JFvIgX8SJexIt4ES/iRbyIF/EiXsSLeBEv
 eBEv4kW8iBfxIl7Ei3gRL+JFvIgX8SJexIt4ES/iRbyIF/EiXsSLeBEv4kW8iBfxIh+szAVJhxYr
 YQAAAABJRU5ErkJggg==
 "
-       preserveAspectRatio="none"
-       height="294"
-       width="89" />
-    <image
-       y="42.505062"
-       x="407.64288"
-       id="image3987"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAACsElEQVR4
+         id="image3967"
+         x="528.64288"
+         y="42.505062" />
+      <image
+         style="opacity:1;"
+         width="89"
+         height="294"
+         preserveAspectRatio="none"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAACsElEQVR4
 nO3aMWoqYRhA0YmxVheQPisQe3eQlWYH9pIVpE/KgBNIOfq6d7sE3itmIOe0Inxc/T9+ce5ut9vA
 MAzDsJp7gAXRIlpEi2gRLaJFtIgW0SJaRItoES2iRbSIFtEiWkSLaBEtokW0iBbRIlpEi2gRLaJF
 tIgW0SJaRItoES2iRbSIFtEiWkSLaBEtokW0iBbRIlpEi2gRLaJFtIgW0SJaRItoES2iRbSIFtEi
@@ -200,14 +207,14 @@ ud29v7/PPcNSOCPRIlpEi2gRLaJFtIgW0SJaRItoES2iRbSIFtEiWkSLaBEtokW0iBbRIuu5B/jB
 /WKapnEcX15eTqfTMAzH43G/32+329/ziKf7Rea5d07TdLlclva8se9F7M5oES2iRbTI2hXrrz8A
 woRxohMiYAAAAABJRU5ErkJggg==
 "
-       preserveAspectRatio="none"
-       height="294"
-       width="89" />
-    <image
-       y="42.505062"
-       x="288.64288"
-       id="image4007"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAFu0lEQVR4
+         id="image3987"
+         x="407.64288"
+         y="42.505062" />
+      <image
+         width="89"
+         height="294"
+         preserveAspectRatio="none"
+         xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAAEmCAIAAACGaqtYAAAAA3NCSVQICAjb4U/gAAAFu0lEQVR4
 nO3dwU/TUADH8dd10K5lkZhsJujmSQwXd5CjhAOc/IdN5EAMVxKdF8WdrHhwGD0w3Qa09TDlB4Yo
 DNb3xr6fO6x8eX1rX9fOy/PcwBhjTMn2BjiEFkILoYXQQmghtBBaCC2EFkILoYXQQmghtBBaCC2E
 FkILoYXQQmghtBBaCC2EFkILoYXQQmghtBBaCC2EFkILoYXQQmghtBBaCC2EFkILoYXQQmghtBBa
@@ -236,8 +243,9 @@ kyfr6+uPHz+2ci3GTovTy1GvXr16+/bt4eFhs9lcW1trtVr1ej0Mw9la73Rq7xixto+4tthpOO48
 ixZCi9+yLKOFMX/e12hhzJ9bWmnxW2mmTr3+ixZCC6GF0EJ+AXzSXay5yOnBAAAAAElFTkSuQmCC
 
 "
-       preserveAspectRatio="none"
-       height="294"
-       width="89" />
+         id="image4007"
+         x="288.64288"
+         y="42.505062" />
+    </g>
   </g>
 </svg>
