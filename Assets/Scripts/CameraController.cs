@@ -14,10 +14,6 @@ public class CameraController : MonoBehaviour {
         Cursor.visible = false;
     }
 
-    private void Awake() {
-        elevator = GameObject.FindGameObjectWithTag("Player").transform;
-    }
-
     private Vector3 velocityCameraFollow;
     public Vector3 cameraPosition = new Vector3(0, 0, -4);
     
