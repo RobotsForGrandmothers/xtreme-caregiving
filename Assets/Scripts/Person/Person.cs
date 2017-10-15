@@ -5,6 +5,10 @@ using UnityEngine;
 public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
 
+	static System.Random rand = new System.Random();
+
+	public bool crazy = true;
+
     public float speed = 2f;
 	public float hungerRate = 100f / 30;
 	float _hunger = 0;
@@ -84,6 +88,11 @@ public abstract class Person : MonoBehaviour {
 
 		// if we have no target, return
 		if (target == null) return;
+
+		// if we're crazy, turn with time based probability
+		if (rand.NextDouble () <= 2 * (1f / (1 + Mathf.Exp (-Time.deltaTime)) - 0.5f)) {
+			isFacingRight = !isFacingRight;
+		}
 
 		// if we're moving, move towards our target
 		if (moving) {

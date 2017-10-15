@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ScoreTracking : MonoBehaviour {
 	public static ScoreTracking globalData { get { return GameObject.FindGameObjectWithTag ("GlobalData").GetComponent<ScoreTracking>(); } }
@@ -75,6 +76,12 @@ public class ScoreTracking : MonoBehaviour {
     }
 
 	public void Reset() {
+		// actually, just do this
+		if (gameOver) {
+			SceneManager.LoadScene ("Main");
+		}
+
+		// better but faulty way
 		gameOver = false;
 		score = 0;
 		deaths = 0;
