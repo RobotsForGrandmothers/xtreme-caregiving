@@ -77,6 +77,7 @@ public abstract class Person : MonoBehaviour {
 
 	public void Kill() {
 		this.dead = true;
+		this.transform.parent = null;
 		this.target = null;
 		this.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 		this.GetComponent<Rigidbody2D> ().velocity = speed * (isFacingRight ? Vector2.right : Vector2.left);
