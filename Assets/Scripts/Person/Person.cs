@@ -6,7 +6,7 @@ public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
 
     public float speed = 2f;
-	public float hungerRate = 100 / 30;
+	public float hungerRate = 100f / 30;
 	float _hunger = 0;
 	public float hunger {
 		get { return _hunger; }
