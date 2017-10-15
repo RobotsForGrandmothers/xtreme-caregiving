@@ -29,7 +29,7 @@ public class PersonSpawner : MonoBehaviour {
 		}
 	}
 
-	void Reset() {
+	public void Reset() {
 		firstSpawnTime = Time.time;
 	}
 

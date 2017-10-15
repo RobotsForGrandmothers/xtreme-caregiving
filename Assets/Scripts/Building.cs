@@ -57,6 +57,13 @@ public class Building : MonoBehaviour {
 		this.GetComponent<BoxCollider2D> ().offset = new Vector2 (0, size.y / 2 - floorHeight / 2);
 	}
 
+	public void Reset() {
+		foreach (Floor f in floorArray) {
+			if (f.doorLeft.IsOpen()) f.doorLeft.Close ();
+			if (f.doorRight.IsOpen()) f.doorRight.Close ();
+		}
+	}
+
 	Node GetRandomNode() {
 		Floor floor = floorArray[rand.Next(1,floorArray.Length)];
 		bool left = rand.Next (2) == 0;
