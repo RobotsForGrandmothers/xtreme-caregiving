@@ -58,9 +58,13 @@ public class Building : MonoBehaviour {
 	}
 
 	public void Reset() {
-		foreach (Floor f in floorArray) {
-			if (f.doorLeft.IsOpen()) f.doorLeft.Close ();
-			if (f.doorRight.IsOpen()) f.doorRight.Close ();
+		if (floorArray != null) {
+			foreach (Floor f in floorArray) {
+				if (f.doorLeft.IsOpen ())
+					f.doorLeft.Close ();
+				if (f.doorRight.IsOpen ())
+					f.doorRight.Close ();
+			}
 		}
 	}
 
