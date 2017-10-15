@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ScoreTracking : MonoBehaviour {
 	public static ScoreTracking globalData { get { return GameObject.FindGameObjectWithTag ("GlobalData").GetComponent<ScoreTracking>(); } }
+
+	[SerializeField] UnityEvent onGameOver;
+	[SerializeField] UnityEvent onGameReset;
 
 	int _score = 0;
 	public int score {
 		get { return _score; }
 		set {
+			if (gameOver) return;
 			_score = value;
 			scoreText.text = "Score: " + _score.ToString ();
 		}
@@ -18,9 +23,18 @@ public class ScoreTracking : MonoBehaviour {
 	public int deaths {
 		get { return _deaths; }
 		set {
+			if (gameOver) return;
 			_deaths = value;
+			if (deaths >= maxDeaths) gameOver = true;
 			deathsText.text = "Deaths: " + _deaths.ToString();
 		}
+	}
+
+	public int maxDeaths = 50;
+	bool _gameOver;
+	public bool gameOver { 
+		get { return _gameOver; }
+		private set { _gameOver = value; if (gameOver) onGameOver.Invoke (); }
 	}
 
 	public float timeForCombo = 5.0f;
@@ -50,8 +64,7 @@ public class ScoreTracking : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		score = 0;
-		deaths = 0;
+		Reset ();
     }
 	
 	// Update is called once per frame
@@ -60,4 +73,12 @@ public class ScoreTracking : MonoBehaviour {
 			R = G = B = 0;
 		}
     }
+
+	public void Reset() {
+		gameOver = false;
+		score = 0;
+		deaths = 0;
+		R = G = B = 0;
+		onGameReset.Invoke ();
+	}
 }
