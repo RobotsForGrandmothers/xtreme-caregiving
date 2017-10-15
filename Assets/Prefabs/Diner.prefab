@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4562758185237330}
   - component: {fileID: 212546787783034742}
+  - component: {fileID: 95069980478888370}
   m_Layer: 0
   m_Name: Renderer Left
   m_TagString: Untagged
@@ -71,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4753670948221950}
   - component: {fileID: 212981120021676720}
+  - component: {fileID: 95338644634073528}
   m_Layer: 0
   m_Name: Renderer Right
   m_TagString: Untagged
@@ -178,6 +180,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95069980478888370
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051618981822038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95338644634073528
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1901575423040680}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114698707680708218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: cb3f08f03acc342499280ac752627790, type: 3}
+  - {fileID: 21300000, guid: a66cd98ca7a1f5040ae0720c4cbfd6c3, type: 3}
   spriteShaft: {fileID: 21300000, guid: cb3f08f03acc342499280ac752627790, type: 3}
   doorPrefab: {fileID: 1528052191740758, guid: 8b1655a2b31503b44a1b1ed9a833bf3f, type: 2}
   _doorWidth: 0.5
