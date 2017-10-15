@@ -17,12 +17,17 @@ public abstract class Person : MonoBehaviour {
 		}
 	}
     
-	private bool isFacingRight;
+	bool _isFacingRight;
+	private bool isFacingRight {
+ 		get { return _isFacingRight; }
+		set { _isFacingRight = value; 
+			Vector3 scale = this.gameObject.transform.localScale;
+			scale.x = _isFacingRight ? 1 : -1;
+			this.gameObject.transform.localScale = scale;
+		}
+	}
 
 	public bool dead { get; private set; }
-
-	public List<Sprite> sprites;
-	public SpriteRenderer spriteRenderer;
 
 	Node _target;
 	public Node target {
@@ -49,7 +54,7 @@ public abstract class Person : MonoBehaviour {
 
     // Use this for initialization
     protected void Start () {
-	
+		isFacingRight = true;	
 	}
 
 	public void Kill() {
