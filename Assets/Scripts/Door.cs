@@ -13,7 +13,7 @@ public class Door : MonoBehaviour {
 		get { return _open; }
 		set {
 			_open = value;
-			this.GetComponent<SpriteRenderer> ().color = (_open ? Color.green : Color.red);
+			//this.GetComponent<SpriteRenderer> ().color = (_open ? Color.green : Color.red);
 			animator.SetBool ("Open", _open);
 		}
 	}
