@@ -73,6 +73,6 @@ public class Building : MonoBehaviour {
 		} else {
 			nodes = floor.GetOutNodesRight ();
 		}
-		return nodes [rand.Next (nodes.Length)];
+		return nodes [nodes.Length - 1];
 	}
 }
