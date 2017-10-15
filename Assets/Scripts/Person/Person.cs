@@ -7,7 +7,21 @@ public abstract class Person : MonoBehaviour {
 
 	static System.Random rand = new System.Random();
 
-	public bool crazy = false;
+	public SpriteRenderer rendererModifier;
+	public Sprite crazySprite;
+
+	bool _crazy = false;
+	public bool crazy {
+		get { return _crazy; }
+		set {
+			_crazy = value;
+			if (crazy) {
+				rendererModifier.sprite = crazySprite;
+			} else if (rendererModifier.sprite != null && rendererModifier.sprite.Equals (crazySprite)) {
+				rendererModifier.sprite = null;
+			}
+		}
+	}
 
     public float speed = 2f;
 	public float hungerRate = 100f / 30;
@@ -63,6 +77,7 @@ public abstract class Person : MonoBehaviour {
 
 	public void Kill() {
 		this.dead = true;
+		this.transform.parent = null;
 		this.target = null;
 		this.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 		this.GetComponent<Rigidbody2D> ().velocity = speed * (isFacingRight ? Vector2.right : Vector2.left);
@@ -90,7 +105,7 @@ public abstract class Person : MonoBehaviour {
 		if (target == null) return;
 
 		// if we're crazy, turn with time based probability
-		if (rand.NextDouble () <= 2 * (1f / (1 + Mathf.Exp (-Time.deltaTime)) - 0.5f)) {
+		if (crazy && rand.NextDouble () <= 2 * (1f / (1 + Mathf.Exp (-Time.deltaTime)) - 0.5f)) {
 			isFacingRight = !isFacingRight;
 		}
 
