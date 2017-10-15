@@ -159,6 +159,7 @@ public class Elevator : MonoBehaviour {
 		GameObject node = new GameObject(name);
 		node.transform.SetParent (this.transform);
 		node.AddComponent<Node>();
+		node.GetComponent<Node> ().inElevator = true;
 		return node.GetComponent<Node> ();
 	}
 
