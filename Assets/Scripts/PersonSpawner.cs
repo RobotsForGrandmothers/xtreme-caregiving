@@ -5,14 +5,16 @@ using UnityEngine;
 public class PersonSpawner : MonoBehaviour {
 	public System.Func<Node> nodeGetter;
 
-	public float firstSpawnTime = 0f;
-	public float timeToSpawn = 10f;
+	float firstSpawnTime = 0f;
+	public float initTimeToSpawn = 3f;
+	public float incTimeToSpawn = -1f / 60;
+	public float minTimeToSpawn = 1f;
 	private float nextSpawnTime;
 	public Person[] personPrefabs;
 	public float initPersonSpeed = 2f;
-	public float incPersonSpeed = 0.01f;
+	public float incPersonSpeed = 1f / 60;
 	public float initPersonHungerRate = 100f / 60;
-	public float incPersonHungerRate = 0.01f;
+	public float incPersonHungerRate = 100f / 60 / 60;
 	System.Random rand = new System.Random ((int)(0xa2d10f76 ^ (int)System.DateTime.Now.TimeOfDay.TotalMilliseconds)); // because it works
 	
 	void Start() {
@@ -23,7 +25,7 @@ public class PersonSpawner : MonoBehaviour {
 	void Update () {
 		if (Time.time >= nextSpawnTime) {
 			Spawn ();
-			nextSpawnTime += timeToSpawn;
+			nextSpawnTime += Mathf.Max(minTimeToSpawn, initTimeToSpawn + incTimeToSpawn * (Time.time - firstSpawnTime));
 		}
 	}
 

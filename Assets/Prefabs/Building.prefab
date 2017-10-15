@@ -99,14 +99,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244563fd0fffa42c384a897aba1364ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSpawnTime: 0
-  timeToSpawn: 5
+  initTimeToSpawn: 3
+  incTimeToSpawn: -0.016666668
+  minTimeToSpawn: 1
   personPrefabs:
-  - {fileID: 114871603889664332, guid: 36aa3c50629834ee1b9e2035d90ec4c3, type: 2}
-  - {fileID: 114437257565458818, guid: 5a10c3f09d9984b4d906398bddff7913, type: 2}
   - {fileID: 114866707777693772, guid: 1949a1d4f4bad497ea7c4e98b38a545c, type: 2}
-  personSpeed: 2
-  personHungerRate: 1.6666666
+  - {fileID: 114437257565458818, guid: 5a10c3f09d9984b4d906398bddff7913, type: 2}
+  - {fileID: 114871603889664332, guid: 36aa3c50629834ee1b9e2035d90ec4c3, type: 2}
+  initPersonSpeed: 2
+  incPersonSpeed: 0.016666668
+  initPersonHungerRate: 1.6666666
+  incPersonHungerRate: 0.027777778
 --- !u!114 &114659643253582710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f7f596627e6454e8ba75a50298ee2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floors: 1
+  floors: 5
   floorLength: 5
   nodeSpacing: 1
   elevatorWidth: 5
