@@ -97,7 +97,7 @@ public abstract class Person : MonoBehaviour {
 		if (!moving) {
 			if (isFacingRight) {
 				if (target.right == null) {// turn if we must, but not in an elevator
-					if (!target.inElevator) {
+					if (!target.inElevator && target.left != null) {
 						isFacingRight = false;
 					}
 				} else if (!target.right.IsReserved ()) { // keep moving if we can
@@ -112,7 +112,7 @@ public abstract class Person : MonoBehaviour {
 				}
 			} else {
 				if (target.left == null) {// turn if we must
-					if (!target.inElevator) {
+					if (!target.inElevator && target.right != null) {
 						isFacingRight = true;
 					}
 				} else if (!target.left.IsReserved ()) { // keep moving if we can
