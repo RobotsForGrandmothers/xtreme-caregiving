@@ -19,7 +19,7 @@ public abstract class Person : MonoBehaviour {
     
 	private bool isFacingRight;
 
-	private bool dead;
+	public bool dead { get; private set; }
 
 	public List<Sprite> sprites;
 	public SpriteRenderer spriteRenderer;
