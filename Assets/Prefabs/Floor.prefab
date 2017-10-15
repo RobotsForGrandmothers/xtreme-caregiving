@@ -192,8 +192,11 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: 3e4328a4a96e9984b9c927cd1fcbf937, type: 3}
   - {fileID: 21300000, guid: 54a89e2e1c574444e8ea845d7562b15c, type: 3}
+  - {fileID: 21300000, guid: ade82e925a70af147b7522e86a33f5a1, type: 3}
   - {fileID: 21300000, guid: af1d693ce94ede44a8f92a08ef8c0bbb, type: 3}
   - {fileID: 21300000, guid: c6c66da79f202974ebb6ecdcd8680572, type: 3}
+  - {fileID: 21300000, guid: 10624d88f675aa4479aaa1f646524479, type: 3}
+  - {fileID: 21300000, guid: 7014d10df639dfb4aa4f5ec098e24638, type: 3}
   spriteShaft: {fileID: 21300000, guid: cb3f08f03acc342499280ac752627790, type: 3}
   doorPrefab: {fileID: 1162778096844468, guid: 1aea35c8299db4eeaa75c9c8a2a721a6, type: 2}
   _doorWidth: 0.5
