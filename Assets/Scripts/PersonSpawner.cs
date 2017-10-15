@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PersonSpawner : MonoBehaviour {
 	public System.Func<Node> nodeGetter;
+
 	public float firstSpawnTime = 0f;
 	public float timeToSpawn = 10f;
 	private float nextSpawnTime;
 	public Person[] personPrefabs;
-	public float personSpeed = 2f;
-	public float personHungerRate = 100f / 30;
+	public float initPersonSpeed = 2f;
+	public float incPersonSpeed = 0.01f;
+	public float initPersonHungerRate = 100f / 60;
+	public float incPersonHungerRate = 0.01f;
 	System.Random rand = new System.Random ((int)(0xa2d10f76 ^ (int)System.DateTime.Now.TimeOfDay.TotalMilliseconds)); // because it works
-
+	
 	void Start() {
 		nextSpawnTime = firstSpawnTime;
 	}
@@ -24,6 +27,10 @@ public class PersonSpawner : MonoBehaviour {
 		}
 	}
 
+	void Reset() {
+		firstSpawnTime = Time.time;
+	}
+
 	void Spawn() {
 		Person personPrefab = personPrefabs[rand.Next (personPrefabs.Length)];
 		Node node = nodeGetter();
@@ -34,7 +41,7 @@ public class PersonSpawner : MonoBehaviour {
 		Person person = Instantiate (personPrefab).GetComponent<Person>();
 		person.transform.position = node.transform.position;
 		person.target = node;
-		person.hungerRate = personHungerRate;
-		person.speed = personSpeed;
+		person.hungerRate = initPersonHungerRate + incPersonHungerRate * (Time.time - firstSpawnTime);
+		person.speed = initPersonSpeed + incPersonSpeed * (Time.time - firstSpawnTime);
 	}
 }

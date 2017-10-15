@@ -159,7 +159,7 @@ Prefab:
     - target: {fileID: 114558781269918394, guid: 8da33dcaae7d846c4bf61aa3749f7c24,
         type: 2}
       propertyPath: timeToSpawn
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8da33dcaae7d846c4bf61aa3749f7c24, type: 2}
