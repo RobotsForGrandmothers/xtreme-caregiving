@@ -15,6 +15,7 @@ public class PersonSpawner : MonoBehaviour {
 	public float incPersonSpeed = 1f / 60;
 	public float initPersonHungerRate = 100f / 60;
 	public float incPersonHungerRate = 100f / 60 / 60;
+	public float crazyProbability = 1f / 5;
 	System.Random rand = new System.Random ((int)(0xa2d10f76 ^ (int)System.DateTime.Now.TimeOfDay.TotalMilliseconds)); // because it works
 	
 	void Start() {
@@ -45,5 +46,6 @@ public class PersonSpawner : MonoBehaviour {
 		person.target = node;
 		person.hungerRate = initPersonHungerRate + incPersonHungerRate * (Time.time - firstSpawnTime);
 		person.speed = initPersonSpeed + incPersonSpeed * (Time.time - firstSpawnTime);
+		person.crazy = rand.NextDouble () <= crazyProbability;
 	}
 }
