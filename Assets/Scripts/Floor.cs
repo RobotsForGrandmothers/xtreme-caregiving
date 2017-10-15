@@ -132,8 +132,8 @@ public class Floor : MonoBehaviour {
 		doorRight.transform.localPosition = new Vector2(+(middleWidth + doorWidth) / 2, 0);
 
 		// reposition sprites
-		spriteRendererLeft.transform.localPosition = new Vector2 (-(middleWidth / 2 + doorWidth + halfLength / 2), 0);
-		spriteRendererRight.transform.localPosition = new Vector2 (+(middleWidth / 2 + doorWidth + halfLength / 2), 0);
+		spriteRendererLeft.transform.localPosition = new Vector2 (-(1f / 2 + middleWidth / 2 + doorWidth + halfLength / 2), 0);
+		spriteRendererRight.transform.localPosition = new Vector2 (+(1f / 2 + middleWidth / 2 + doorWidth + halfLength / 2), 0);
 		spriteRendererShaft.transform.localPosition = Vector2.zero;
 
 		// reposition nodes
