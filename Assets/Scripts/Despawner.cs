@@ -3,17 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Despawner : MonoBehaviour {
-    public static int count = 0;
-    public static int score = 0;
-    public static int deaths = 0;
-
-
-    // vars for coinging old ppl types
-    static int R = 0;
-    static int G = 0;
-    static int B = 0;
-
-
     // Use this for initialization
     void Start() {
 
@@ -25,43 +14,10 @@ public class Despawner : MonoBehaviour {
     }
     // trigger when an old person appears
     void OnTriggerEnter2D(Collider2D oldman) {
-        if (oldman.GetComponent<Person>() != null)
-        {
-            // socring your old ppl
-            if (count != 5)
-            {
+        if (oldman.GetComponent<Person>() != null) {
+            // tell scorer to score person
+			ScoreTracking.globalData.GetComponent<ScoreTracking>().Score (oldman.GetComponent<Person>());
 
-                // count the types of old person
-                count += 1;
-                Debug.Log("added 1 to count total now " + count);
-                if (oldman.GetComponent<PersonRed>())
-                {
-                    R += 1;
-                    Debug.Log("1 more red person, total is: " + R);
-                }
-                if (oldman.GetComponent<PersonGreen>())
-                {
-                    G += 1;
-                    Debug.Log("1 more green person, total is: " + G);
-                }
-                if (oldman.GetComponent<PersonBlue>())
-                {
-                    B += 1;
-                    Debug.Log("1 more blue person, total is: " + B);
-                }
-            }
-                // scoring them
-            if (count == 5)
-                {
-                    Debug.Log("5 old people passed");
-                    count = 0;
-                    score += ((R * 1) + (G * 10) + (B * 100));
-                    R = 0;
-                    G = 0;
-                    B = 0;
-                    Debug.Log("score is " + score);
-                }
-          
             // getting rid of them
             Destroy(oldman.gameObject);
         }
