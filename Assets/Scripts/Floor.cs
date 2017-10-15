@@ -7,6 +7,12 @@ public class Floor : MonoBehaviour {
 
     public List<Sprite> sprites;
 	public GameObject doorPrefab;
+	
+	[SerializeField] float _doorWidth = 1;
+	public float doorWidth {
+		get { return _doorWidth; }
+		set { _doorWidth = value; RepositionNodes (); }
+	}
 
 	int _halfLength;
 	public int halfLength { 
@@ -33,9 +39,9 @@ public class Floor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		left = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
-		left.transform.localPosition = new Vector2(-middleWidth / 2, 0);
+		left.transform.localPosition = new Vector2(-(middleWidth + doorWidth) / 2, 0);
 		right = Instantiate (doorPrefab, this.transform).GetComponent<Door>();
-		right.transform.localPosition = new Vector2(+middleWidth / 2, 0);
+		right.transform.localPosition = new Vector2(+(middleWidth + doorWidth) / 2, 0);
 		Vector3 rightScale = right.transform.localScale;
 		rightScale.x *= -1;
 		right.transform.localScale = rightScale;
@@ -108,16 +114,16 @@ public class Floor : MonoBehaviour {
 	}
 
 	void RepositionNodes() {
-		leftNodeShaft.transform.localPosition = new Vector2 (-(middleWidth / 2 * nodeSpacing), 0);
-		rightNodeShaft.transform.localPosition = new Vector2 (+(middleWidth / 2 * nodeSpacing), 0);
+		leftNodeShaft.transform.localPosition = new Vector2 (-((middleWidth / 2 + doorWidth)), 0);
+		rightNodeShaft.transform.localPosition = new Vector2 (+((middleWidth / 2 + doorWidth)), 0);
 		for (int i = 0; i < halfLength; ++i) {
-			leftNodes [i].transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
-			rightNodes [i].transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+			leftNodes [i].transform.localPosition = new Vector2 (-((middleWidth / 2 + doorWidth) + (i + 1f / 2) * nodeSpacing), 0);
+			rightNodes [i].transform.localPosition = new Vector2 (+((middleWidth / 2 + doorWidth) + (i + 1f / 2) * nodeSpacing), 0);
 		}
 		for (int i = 0; i < halfLength; ++i) {
 			int index = 2 * halfLength - i - 1;
-			leftNodes [index].transform.localPosition = new Vector2 (-(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
-			rightNodes [index].transform.localPosition = new Vector2 (+(middleWidth / 2 + (i + 1) * nodeSpacing), 0);
+			leftNodes [index].transform.localPosition = new Vector2 (-((middleWidth / 2 + doorWidth) + (i + 1f / 2) * nodeSpacing), 0);
+			rightNodes [index].transform.localPosition = new Vector2 (+((middleWidth / 2 + doorWidth) + (i + 1f / 2) * nodeSpacing), 0);
 		}
 	}
 
