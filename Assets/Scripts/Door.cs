@@ -43,7 +43,7 @@ public class Door : MonoBehaviour {
 			foreach (Person p in insideDoor) {
                 //toDestroy.Add (p.gameObject);
                 gameObject.GetComponent<AudioSource>().Play();
-				p.Kill ();
+				p.Kill (Person.CauseOfDeath.SLICE);
 			}
 			insideDoor.Clear ();
 			//for (int i = 0; i < toDestroy.Count; ++i) {

@@ -35,7 +35,9 @@ public class ScoreTracking : MonoBehaviour {
 	bool _gameOver;
 	public bool gameOver { 
 		get { return _gameOver; }
-		private set { _gameOver = value; if (gameOver) onGameOver.Invoke (); }
+		private set { _gameOver = value; if (gameOver) onGameOver.Invoke ();
+            Cursor.visible = true;
+        }
 	}
 
 	public float timeForCombo = 5.0f;
