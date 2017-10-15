@@ -21,6 +21,9 @@ public abstract class Person : MonoBehaviour {
 
 	private bool dead;
 
+	public List<Sprite> sprites;
+	public SpriteRenderer spriteRenderer;
+
 	Node _target;
 	public Node target {
 		get { return _target; }
