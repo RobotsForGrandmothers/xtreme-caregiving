@@ -6,9 +6,9 @@ using System;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
 public class Door : MonoBehaviour {
-	bool _open = false;
 	Animator animator;
-
+	
+	bool _open = false;
 	bool open {
 		get { return _open; }
 		set {
@@ -65,6 +65,7 @@ public class Door : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animator = GetComponent<Animator> ();
+		open = false;
 	}
 	
 	// Update is called once per frame
