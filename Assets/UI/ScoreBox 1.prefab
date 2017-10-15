@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114844841911043236}
   - component: {fileID: 114691155732321942}
   m_Layer: 5
-  m_Name: ScoreBox
+  m_Name: ScoreBox 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
