@@ -7,7 +7,17 @@ public abstract class Person : MonoBehaviour {
 
 	static System.Random rand = new System.Random();
 
-	public bool crazy = false;
+	public SpriteRenderer rendererModifier;
+	public Sprite crazySprite;
+
+	bool _crazy = false;
+	public bool crazy {
+		get { return _crazy; }
+		set {
+			_crazy = value;
+			rendererModifier.sprite = crazySprite;
+		}
+	}
 
     public float speed = 2f;
 	public float hungerRate = 100f / 30;
