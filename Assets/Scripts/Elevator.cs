@@ -29,10 +29,10 @@ public class Elevator : MonoBehaviour {
 			}
 			_floor = value;
 			if (_floor != null) {
-				if (floor.left.IsOpen ()) {
+				if (floor.doorLeft.IsOpen ()) {
 					ConnectNode (true);
 				}
-				if (floor.right.IsOpen ()) {
+				if (floor.doorRight.IsOpen ()) {
 					ConnectNode (false);
 				}
 			}
@@ -83,7 +83,7 @@ public class Elevator : MonoBehaviour {
 			Node leftFOut = floor.GetExitLeft ();
 
 			leftE.left = null;
-			if (!floor.left.IsOpen ()) { // disconnect if door closed
+			if (!floor.doorLeft.IsOpen ()) { // disconnect if door closed
 				leftFOut.right = null;
 			} else { // connect to shaft if door not closed
 				leftFOut.right = floor.leftNodeShaft;
@@ -93,7 +93,7 @@ public class Elevator : MonoBehaviour {
 			Node rightFOut = floor.GetExitRight ();
 
 			rightE.right = null;
-			if (!floor.right.IsOpen ()) { // disconnect if door closed
+			if (!floor.doorRight.IsOpen ()) { // disconnect if door closed
 				rightFOut.left = null;
 			} else { // connect to shaft if door not closed
 				rightFOut.left = floor.rightNodeShaft;
@@ -105,7 +105,7 @@ public class Elevator : MonoBehaviour {
 
 	public void CloseLeftDoor(){
 		if (floor != null) {
-			floor.left.Close ();
+			floor.doorLeft.Close ();
 			DisConnectNode (true);
 		} else {
 			throw new Exception ("Cannot close floor door because elevator is not at a floor");
@@ -113,7 +113,7 @@ public class Elevator : MonoBehaviour {
 	}
 	public void OpenLeftDoor(){
 		if (floor != null) {
-			floor.left.Open ();
+			floor.doorLeft.Open ();
 			ConnectNode (true);
 		} else {
 			throw new Exception ("Cannot close floor door because elevator is not at a floor");
@@ -121,7 +121,7 @@ public class Elevator : MonoBehaviour {
 	}
 	public void CloseRightDoor(){
 		if (floor != null) {
-			floor.right.Close ();
+			floor.doorRight.Close ();
 			DisConnectNode (false);
 		} else {
 			throw new Exception ("Cannot close floor door because elevator is not at a floor");
@@ -129,7 +129,7 @@ public class Elevator : MonoBehaviour {
 	}
 	public void OpenRightDoor(){
 		if (floor != null) {
-			floor.right.Open ();
+			floor.doorRight.Open ();
 			ConnectNode (false);
 		} else {
 			throw new Exception ("Cannot close floor door because elevator is not at a floor");
