@@ -14,7 +14,7 @@ public class Despawner : MonoBehaviour {
     }
     // trigger when an old person appears
     void OnTriggerEnter2D(Collider2D oldman) {
-        if (oldman.GetComponent<Person>() != null) {
+        if (oldman.GetComponent<Person>() != null && !oldman.GetComponent<Person>().dead) {
             // tell scorer to score person
 			ScoreTracking.globalData.GetComponent<ScoreTracking>().Score (oldman.GetComponent<Person>());
 

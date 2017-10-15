@@ -19,7 +19,7 @@ public abstract class Person : MonoBehaviour {
     
 	private bool isFacingRight;
 
-	private bool dead;
+	public bool dead { get; private set; }
 
 	Node _target;
 	public Node target {
