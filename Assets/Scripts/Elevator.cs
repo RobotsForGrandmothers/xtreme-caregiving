@@ -92,7 +92,8 @@ public class Elevator : MonoBehaviour {
 			Node rightE = nodes [(nodes.Length - 1)];
 			Node rightFOut = floor.GetExitRight ();
 
-			rightE.right = null;if (!floor.left.IsOpen ()) { // disconnect if door closed
+			rightE.right = null;
+			if (!floor.right.IsOpen ()) { // disconnect if door closed
 				rightFOut.left = null;
 			} else { // connect to shaft if door not closed
 				rightFOut.left = floor.rightNodeShaft;

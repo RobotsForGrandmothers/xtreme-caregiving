@@ -4,13 +4,17 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class Door : MonoBehaviour {
 	bool _open = false;
+	Animator animator;
+
 	bool open {
 		get { return _open; }
 		set {
 			_open = value;
 			this.GetComponent<SpriteRenderer> ().color = (_open ? Color.green : Color.red);
+			animator.SetBool ("Open", _open);
 		}
 	}
 
@@ -60,7 +64,7 @@ public class Door : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		animator = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame

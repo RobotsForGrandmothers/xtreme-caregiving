@@ -46,7 +46,7 @@ public abstract class Person : MonoBehaviour {
 		this.GetComponent<Rigidbody2D> ().velocity = speed * (isFacingRight ? Vector2.right : Vector2.left);
 		this.GetComponent<Rigidbody2D> ().angularVelocity = isFacingRight ? -180 : 180;
 
-		Despawner.deaths += 1;
+		ScoreTracking.globalData.deaths += 1;
 	}
 
 	// Destroy when leaving the building collider
