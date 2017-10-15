@@ -6,6 +6,9 @@ public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
 
 	static System.Random rand = new System.Random();
+	
+	public List<Sprite> sprites;
+	public SpriteRenderer spriteRenderer;
 
 	public bool crazy;
 

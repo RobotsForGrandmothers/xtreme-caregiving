@@ -42,6 +42,9 @@ TagManager:
   - name: Background
     uniqueID: 2933112559
     locked: 0
+  - name: Elevator
+    uniqueID: 2430778621
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
