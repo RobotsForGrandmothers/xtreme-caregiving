@@ -16,6 +16,9 @@ public class Elevator : MonoBehaviour {
 		set { _nodeSpacing = value; RepositionNodes (); }
 	}
 
+	public float maxHeight;
+	public float minHeight;
+
 	private Floor _floor;
 	private Floor floor {
 		get { return _floor; }
@@ -156,6 +159,7 @@ public class Elevator : MonoBehaviour {
 		GameObject node = new GameObject(name);
 		node.transform.SetParent (this.transform);
 		node.AddComponent<Node>();
+		node.GetComponent<Node> ().inElevator = true;
 		return node.GetComponent<Node> ();
 	}
 

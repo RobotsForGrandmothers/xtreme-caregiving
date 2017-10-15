@@ -48,6 +48,8 @@ public class Building : MonoBehaviour {
 		elevator = Instantiate (elevatorPrefab.gameObject, this.transform).GetComponent<Elevator>();
 		elevator.numNodesInElevator = elevatorWidth;
 		elevator.transform.position = Vector2.zero;
+		elevator.minHeight = 0;
+		elevator.maxHeight = floorHeight * (floors - 1);
 	}
 
 	Node GetRandomNode() {
