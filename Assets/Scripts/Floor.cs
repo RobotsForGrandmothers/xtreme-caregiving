@@ -4,6 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class Floor : MonoBehaviour {
+
+    public List<Sprite> sprites;
 	public GameObject doorPrefab;
 
 	int _halfLength;
