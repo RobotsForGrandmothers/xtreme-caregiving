@@ -46,6 +46,7 @@ public class PersonSpawner : MonoBehaviour {
 		person.target = node;
 		person.hungerRate = initPersonHungerRate + incPersonHungerRate * (Time.time - firstSpawnTime);
 		person.speed = initPersonSpeed + incPersonSpeed * (Time.time - firstSpawnTime);
-		person.crazy = rand.NextDouble () <= crazyProbability;
+
+		person.crazy = rand.NextDouble() <= crazyProbability;
 	}
 }

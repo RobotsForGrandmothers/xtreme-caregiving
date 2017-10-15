@@ -15,7 +15,11 @@ public abstract class Person : MonoBehaviour {
 		get { return _crazy; }
 		set {
 			_crazy = value;
-			rendererModifier.sprite = crazySprite;
+			if (crazy) {
+				rendererModifier.sprite = crazySprite;
+			} else if (rendererModifier.sprite.Equals (crazySprite)) {
+				rendererModifier.sprite = null;
+			}
 		}
 	}
 
@@ -100,7 +104,7 @@ public abstract class Person : MonoBehaviour {
 		if (target == null) return;
 
 		// if we're crazy, turn with time based probability
-		if (rand.NextDouble () <= 2 * (1f / (1 + Mathf.Exp (-Time.deltaTime)) - 0.5f)) {
+		if (crazy && rand.NextDouble () <= 2 * (1f / (1 + Mathf.Exp (-Time.deltaTime)) - 0.5f)) {
 			isFacingRight = !isFacingRight;
 		}
 
