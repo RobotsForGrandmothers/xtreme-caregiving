@@ -56,7 +56,6 @@ GameObject:
   - component: {fileID: 114698707680708218}
   - component: {fileID: 61903949387785062}
   - component: {fileID: 50266558109062486}
-  - component: {fileID: 95557676951485502}
   m_Layer: 0
   m_Name: Diner
   m_TagString: Untagged
@@ -190,7 +189,7 @@ Animator:
   m_GameObject: {fileID: 1051618981822038}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53a66f58ad14644048c8b0b92d322bdb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -207,7 +206,7 @@ Animator:
   m_GameObject: {fileID: 1901575423040680}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 53a66f58ad14644048c8b0b92d322bdb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -314,7 +313,7 @@ SpriteRenderer:
   m_SortingLayerID: -1361854737
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a66cd98ca7a1f5040ae0720c4cbfd6c3, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -322,7 +321,7 @@ SpriteRenderer:
   m_Size: {x: 15, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212560248651584366
 SpriteRenderer:
@@ -358,7 +357,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e4230d86222746940ba9182710fc2708, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -366,7 +365,7 @@ SpriteRenderer:
   m_Size: {x: 5, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!212 &212981120021676720
 SpriteRenderer:
@@ -402,7 +401,7 @@ SpriteRenderer:
   m_SortingLayerID: -1361854737
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dc05f83ab7ff89a48b3ae20d2fbc1183, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -410,5 +409,5 @@ SpriteRenderer:
   m_Size: {x: 15, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
