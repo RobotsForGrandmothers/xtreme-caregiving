@@ -6,6 +6,16 @@ public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
 
     public float speed = 1f;
+	public float hungerRate = 100 / 30;
+	float _hunger = 0;
+	public float hunger {
+		get { return _hunger; }
+		set { 
+			_hunger = value;
+			this.GetComponent<SpriteRenderer> ().color = new Color (1, 1 - (hunger / 100), 1 - (hunger / 100));
+			if (_hunger >= 100) this.Kill ();
+		}
+	}
     
 	private bool isFacingRight;
 
@@ -60,6 +70,9 @@ public abstract class Person : MonoBehaviour {
 	protected void Update () {
 		// if we're dead, return
 		if (dead) return;
+
+		// increment hunger
+		hunger += hungerRate * Time.deltaTime;
 
 		// if we have no target, return
 		if (target == null) return;
