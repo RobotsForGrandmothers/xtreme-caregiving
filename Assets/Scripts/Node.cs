@@ -9,6 +9,7 @@ public class Node : MonoBehaviour {
 	public Node left;
 	public Node right;
 	public bool inElevator;
+	public bool isDeath;
 
 	public bool IsReserved() {
 		return reserved;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PersonSpawner))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class Building : MonoBehaviour {
 	public int floors = 0;
 	public int floorLength = 5;
@@ -50,6 +51,10 @@ public class Building : MonoBehaviour {
 		elevator.transform.position = Vector2.zero;
 		elevator.minHeight = 0;
 		elevator.maxHeight = floorHeight * (floors - 1);
+
+		Vector2 size = new Vector2 (elevatorWidth + 2 * floorLength, floorHeight * floors);
+		this.GetComponent<BoxCollider2D> ().size = size;
+		this.GetComponent<BoxCollider2D> ().offset = new Vector2 (0, size.y / 2 - floorHeight / 2);
 	}
 
 	Node GetRandomNode() {

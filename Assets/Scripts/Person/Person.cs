@@ -6,7 +6,11 @@ public abstract class Person : MonoBehaviour {
 	private static float reachedDistance = 0.02f;
 
     public float speed = 1f;
-    private bool isFacingRight;
+    
+	private bool isFacingRight;
+
+	private bool dead;
+
 	Node _target;
 	public Node target {
 		get { return _target; }
@@ -34,9 +38,27 @@ public abstract class Person : MonoBehaviour {
     protected void Start () {
 	
 	}
+
+	void Kill() {
+		this.dead = true;
+		this.target = null;
+		this.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
+		this.GetComponent<Rigidbody2D> ().velocity = speed * (isFacingRight ? Vector2.right : Vector2.left);
+		this.GetComponent<Rigidbody2D> ().angularVelocity = isFacingRight ? -180 : 180;
+	}
+
+	// Destroy when leaving the building collider
+	void OnTriggerExit2D(Collider2D other) {
+		if (other.GetComponent<Building> () != null) {
+			Destroy (this.gameObject);
+		}
+	}
 	
 	// Update is called once per frame
 	protected void Update () {
+		// if we're dead, return
+		if (dead) return;
+
 		// if we have no target, return
 		if (target == null) return;
 
@@ -50,6 +72,7 @@ public abstract class Person : MonoBehaviour {
 			if (Mathf.Abs (deltaX) > Mathf.Abs (deltaTarget)) {
 				deltaX = deltaTarget;
 				moving = false;
+				if (target.isDeath) this.Kill ();
 			}
 			position.x = position.x + deltaX;
 			this.transform.position = position;

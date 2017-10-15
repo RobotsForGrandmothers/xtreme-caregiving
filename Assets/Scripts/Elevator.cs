@@ -28,6 +28,14 @@ public class Elevator : MonoBehaviour {
 				DisConnectNode (false);
 			}
 			_floor = value;
+			if (_floor != null) {
+				if (floor.left.IsOpen ()) {
+					ConnectNode (true);
+				}
+				if (floor.right.IsOpen ()) {
+					ConnectNode (false);
+				}
+			}
 		}
 	}
 	private Node[] nodes;
@@ -75,13 +83,20 @@ public class Elevator : MonoBehaviour {
 			Node leftFOut = floor.GetExitLeft ();
 
 			leftE.left = null;
-			leftFOut.right = null;
+			if (!floor.left.IsOpen ()) { // disconnect if door closed
+				leftFOut.right = null;
+			} else { // connect to shaft if door not closed
+				leftFOut.right = floor.leftNodeShaft;
+			}
 		} else {
 			Node rightE = nodes [(nodes.Length - 1)];
 			Node rightFOut = floor.GetExitRight ();
 
-			rightE.right = null;
-			rightFOut.left = null;
+			rightE.right = null;if (!floor.left.IsOpen ()) { // disconnect if door closed
+				rightFOut.left = null;
+			} else { // connect to shaft if door not closed
+				rightFOut.left = floor.rightNodeShaft;
+			}
 		}
 		
 		Debug.Log ("Disconnected floor nodes on " + (Left ? "left" : "right") + " side");
