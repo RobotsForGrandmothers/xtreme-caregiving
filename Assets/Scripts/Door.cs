@@ -41,7 +41,8 @@ public class Door : MonoBehaviour {
 			open = false;
 			//List<GameObject> toDestroy = new List<GameObject> ();
 			foreach (Person p in insideDoor) {
-				//toDestroy.Add (p.gameObject);
+                //toDestroy.Add (p.gameObject);
+                gameObject.GetComponent<AudioSource>().Play();
 				p.Kill ();
 			}
 			insideDoor.Clear ();
