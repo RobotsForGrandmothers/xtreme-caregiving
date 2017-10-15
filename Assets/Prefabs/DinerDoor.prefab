@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4776854118250512}
   - component: {fileID: 212445341638150900}
   - component: {fileID: 114632675796178366}
+  - component: {fileID: 95786026694414628}
   m_Layer: 0
   m_Name: DinerDoor
   m_TagString: Untagged
@@ -118,6 +119,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &95786026694414628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528052191740758}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a918d4beb7e14d36af9e253c18f8304, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114491344755483756
 MonoBehaviour:
   m_ObjectHideFlags: 1
