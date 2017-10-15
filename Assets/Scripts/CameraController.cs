@@ -39,10 +39,11 @@ public class CameraController : MonoBehaviour {
         }
         return false;
     }
-    
+
+    public float ratio = 0.25f;
     void LookAround() {
         Vector3 pos = transform.position;
-        transform.position = new Vector3(pos.x + (1 * Input.GetAxis("Mouse X")), pos.y + (1 * Input.GetAxis("Mouse Y")), cameraPosition.z);
+        transform.position = new Vector3(pos.x + (ratio * Input.GetAxis("Mouse X")), pos.y + (ratio * Input.GetAxis("Mouse Y")), cameraPosition.z);
     }
 
     public float smoothTime = 0.5f;
