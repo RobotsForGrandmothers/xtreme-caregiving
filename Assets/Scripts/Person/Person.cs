@@ -76,6 +76,8 @@ public abstract class Person : MonoBehaviour {
 		isFacingRight = true;	
 	}
 
+    public AudioClip starveSound;
+    public AudioClip fallSound;
 	public void Kill(CauseOfDeath cod) {
 		this.dead = true;
 		this.transform.parent = null;
@@ -86,6 +88,13 @@ public abstract class Person : MonoBehaviour {
 		this.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 		this.GetComponent<Rigidbody2D> ().velocity = speed * (isFacingRight ? Vector2.right : Vector2.left);
 		this.GetComponent<Rigidbody2D> ().angularVelocity = isFacingRight ? -180 : 180;
+
+        AudioSource audioSource = gameObject.GetComponent<AudioSource>();
+        if (cod == CauseOfDeath.STARVE) {
+            audioSource.PlayOneShot(starveSound);
+        } else if (cod == CauseOfDeath.FALL) {
+            audioSource.PlayOneShot(fallSound);
+        }
 	}
 
 	// Destroy when leaving the building collider
